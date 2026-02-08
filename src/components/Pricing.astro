@@ -1,0 +1,143 @@
+---
+const plans = [
+  {
+    name: "Individual",
+    price: "$8.99",
+    originalPrice: "$9.99",
+    description: "Perfect for solo developers",
+    features: [
+      { label: "Machines", value: "2" },
+      { label: "Updates", value: "Unlimited" },
+      { label: "Support", value: "Email" },
+    ],
+    cta: "Buy Individual",
+    href: "https://gdagent.lemonsqueezy.com/checkout/buy/24de2fbe-7377-475f-b19c-7fb5f8e0d128",
+    highlighted: true,
+    comingSoon: false,
+  },
+  {
+    name: "Team",
+    price: "$199",
+    description: "For studios and teams (coming soon)",
+    features: [
+      { label: "Machines", value: "10" },
+      { label: "Updates", value: "Unlimited" },
+      { label: "Support", value: "Priority" },
+    ],
+    cta: "Coming Soon",
+    href: "",
+    highlighted: false,
+    comingSoon: true,
+  },
+];
+---
+
+<section id="pricing" class="py-16 md:py-24">
+  <div class="mx-auto max-w-4xl px-6">
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 font-mono text-3xl font-medium tracking-tight md:text-4xl">
+        Simple Pricing
+      </h2>
+      <p class="mb-4 text-[#a1a1a1]">
+        One-time purchase. No subscriptions. Unlimited updates.
+      </p>
+    </div>
+
+    <div class="mb-12 rounded-lg border border-[#27ca40]/30 bg-[#27ca40]/10 p-6 md:p-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h3 class="mb-2 font-mono text-xl font-medium text-white">Start With A Free Trial</h3>
+          <p class="text-[#a1a1a1]">
+            Experience the full potential of GDAgent for 7 days. No credit card required.
+          </p>
+        </div>
+        <div class="flex flex-col items-start gap-4 md:items-center text-left md:text-center">
+          <div class="flex flex-col items-center leading-tight">
+            <span class="text-xs font-medium uppercase tracking-widest text-[#a1a1a1]">full access for</span>
+            <span class="font-mono text-4xl font-medium text-white">7 <span class="text-3xl">days</span></span>
+          </div>
+          <a
+            href="https://gdagent.lemonsqueezy.com/checkout/buy/8758fc2a-9f80-4090-bf4f-a21cd964a869"
+            class="rounded border border-[#27ca40] bg-[#27ca40] px-8 py-2.5 text-sm font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#27ca40]/90"
+          >
+            Start Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {plans.map((plan) => (
+        <div
+          class:list={[
+            "flex flex-col rounded-lg border p-6 transition-colors",
+            plan.highlighted
+              ? "border-white bg-[#121212]"
+              : "border-[#262626] bg-[#121212] hover:border-[#404040]",
+          ]}
+        >
+          <div class="mb-6 min-h-[4rem]">
+            <h3 class="mb-1 font-mono text-xl font-medium">{plan.name}</h3>
+            <p class="text-sm text-[#a1a1a1]">{plan.description}</p>
+          </div>
+
+          <div class="mb-6 min-h-[6rem]">
+            {plan.comingSoon ? (
+              <span class="font-mono text-2xl font-medium text-[#a1a1a1]">Coming soon</span>
+            ) : plan.originalPrice ? (
+              <div class="space-y-3">
+                <div class="flex flex-wrap items-baseline gap-3">
+                  <span class="font-mono text-2xl text-[#a1a1a1] line-through">{plan.originalPrice}</span>
+                  <span class="font-mono text-4xl font-medium">{plan.price}</span>
+                  <span class="text-[#a1a1a1]">one-time</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full border border-[#27ca40]/40 bg-[#0f1a12] px-3 py-1 text-xs font-medium text-[#d1f2d8]">
+                    with discount code <span class="font-mono text-white">LAUNCH10</span>, only for a limited time
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div class="flex items-baseline gap-2">
+                <span class="font-mono text-4xl font-medium" data-price-current>{plan.price}</span>
+                <span class="text-[#a1a1a1]">one-time</span>
+              </div>
+            )}
+          </div>
+
+          <ul class="mb-6 flex-1 space-y-3">
+            {plan.features.map((feature) => (
+              <li class="flex justify-between text-sm">
+                <span class="text-[#a1a1a1]">{feature.label}</span>
+                <span class="font-mono">{feature.value}</span>
+              </li>
+            ))}
+          </ul>
+
+          {plan.comingSoon ? (
+            <span class="block rounded border border-[#262626] bg-[#0a0a0a] py-3 text-center font-medium text-[#a1a1a1]">
+              {plan.cta}
+            </span>
+          ) : (
+            <a
+              href={plan.href}
+              class:list={[
+                "block rounded border py-3 text-center font-medium no-underline transition-colors",
+                plan.highlighted
+                  ? "border-white bg-white text-[#0a0a0a] hover:bg-[#f0f0f0] hover:text-[#0a0a0a]"
+                  : "border-[#262626] text-white hover:border-white",
+              ]}
+            >
+              {plan.cta}
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-8 text-center text-sm text-[#a1a1a1]">
+      30-day money-back guarantee. See our <a href="/refund" class="text-white hover:underline">Refund Policy</a>.
+    </p>
+  </div>
+</section>
+

@@ -1,0 +1,59 @@
+---
+const features = [
+  {
+    title: "Native Performance",
+    description: "Rust-powered backend with a lag-free terminal. No Electron, no web views—just pure speed.",
+    icon: "⚡",
+  },
+  {
+    title: "Smart Onboarding",
+    description: "First Run Wizard detects your environment. Auto-discovers AI tools and configures them instantly.",
+    icon: "🎯",
+  },
+  {
+    title: "Professional Layouts",
+    description: "Split view, grid view, drag & drop. Organize your AI sessions exactly how you want them.",
+    icon: "📐",
+  },
+  {
+    title: "Persistent Sessions",
+    description: "Auto-save with custom icons and context awareness. Pick up exactly where you left off.",
+    icon: "💾",
+  },
+  {
+    title: "Prompt Library",
+    description: "Built-in templates for common Godot tasks. GDScript fixes, scene optimization, and more.",
+    icon: "📚",
+  },
+  {
+    title: "Multi-Agent Support",
+    description: "Claude, Gemini, Aider, Copilot—use your preferred AI or mix and match freely.",
+    icon: "🤖",
+  },
+];
+---
+
+<section id="features" class="py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 font-mono text-3xl font-medium tracking-tight md:text-4xl">
+        Built For Developers
+      </h2>
+      <p class="text-[#a1a1a1]">
+        Everything you need for AI-assisted Godot development
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {features.map((feature) => (
+        <div class="rounded-lg border border-[#262626] bg-[#121212] p-6 transition-colors hover:border-[#404040]">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-[#262626] bg-[#0a0a0a] text-lg">
+            {feature.icon}
+          </div>
+          <h3 class="mb-2 font-mono text-lg font-medium">{feature.title}</h3>
+          <p class="text-sm leading-relaxed text-[#a1a1a1]">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

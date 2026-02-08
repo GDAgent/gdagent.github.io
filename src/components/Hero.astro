@@ -1,0 +1,76 @@
+---
+import Terminal from "./Terminal.astro";
+
+const terminalLines = [
+  { prompt: "$", command: "gdagent" },
+  { output: "GDAgent v1.0 - Professional AI Development Environment" },
+  { output: "" },
+  { prompt: "claude>", command: "Fix the player jump physics in Player.gd" },
+  { output: "Analyzing Player.gd..." },
+  { output: "Found issue: velocity.y not reset on ground contact" },
+  { output: "Applied fix to lines 42-48" },
+  { output: "" },
+  { prompt: "$", command: "" },
+];
+
+const agents = [
+  { name: "Claude", icon: "C" },
+  { name: "Gemini", icon: "G" },
+  { name: "Aider", icon: "A" },
+  { name: "Copilot", icon: "●" },
+];
+---
+
+<section class="relative pt-24 pb-16 md:pt-32 md:pb-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="flex flex-col items-center text-center">
+      <!-- Headline -->
+      <h1 class="mb-6 font-mono text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
+        The Professional AI<br />
+        Development Environment<br />
+        <span class="text-[#a1a1a1]">for Godot</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="mb-8 max-w-xl text-lg text-[#a1a1a1]">
+        Native terminal. Persistent sessions. Seamless workflow.
+      </p>
+
+      <!-- CTAs -->
+      <div class="mb-12 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="#pricing"
+          class="rounded border border-white bg-white px-8 py-3 font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#f0f0f0] hover:text-[#0a0a0a]"
+        >
+          Get GDAgent™
+        </a>
+        <a
+          href="#demo"
+          class="rounded border border-[#262626] px-8 py-3 font-medium text-white no-underline transition-colors hover:border-white"
+        >
+          Watch Demo
+        </a>
+      </div>
+
+      <!-- Agent badges -->
+      <div class="mb-12 flex items-center gap-4">
+        <span class="text-xs text-[#a1a1a1]">Works with:</span>
+        <div class="flex gap-2">
+          {agents.map((agent) => (
+            <div
+              class="flex h-8 w-8 items-center justify-center rounded border border-[#262626] bg-[#121212] font-mono text-xs"
+              title={agent.name}
+            >
+              {agent.icon}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Terminal preview -->
+      <div class="w-full max-w-3xl">
+        <Terminal title="gdagent — ~/my-godot-project" lines={terminalLines} />
+      </div>
+    </div>
+  </div>
+</section>

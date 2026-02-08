@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base title="Impressum — GDAgent">
+  <Nav />
+  <main class="pt-24">
+    <div class="mx-auto max-w-3xl px-6 py-16">
+      <h1 class="mb-8 font-mono text-4xl font-medium tracking-tight">Impressum</h1>
+
+      <div class="prose prose-invert max-w-none space-y-6 text-[#a1a1a1]">
+        <section>
+          <h2 class="mb-4 font-mono text-xl font-medium text-white">Angaben gemäß § 5 TMG</h2>
+          <p>
+            Björn Feber<br />
+            Kiebitzweg 36<br />
+            48496 Hopsten<br />
+            Deutschland
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-mono text-xl font-medium text-white">Kontakt</h2>
+          <p>
+            E-Mail: <a href="mailto:gdagent@protonmail.com" class="text-white hover:underline">gdagent@protonmail.com</a><br />
+            Telefon: 01520 6104724
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-mono text-xl font-medium text-white">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+          <p>
+            Björn Feber<br />
+            Kiebitzweg 36<br />
+            48496 Hopsten
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-mono text-xl font-medium text-white">Streitschlichtung</h2>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr/" class="text-white hover:underline" target="_blank" rel="noopener">
+              https://ec.europa.eu/consumers/odr/
+            </a>
+          </p>
+          <p>
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

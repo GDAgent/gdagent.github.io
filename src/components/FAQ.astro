@@ -1,0 +1,59 @@
+---
+const faqs = [
+  {
+    question: "How many machines can I activate?",
+    answer: "The Individual license allows 2 machine activations, perfect for your desktop and laptop. The Team plan is coming soon and will allow 10 activations for your entire studio.",
+  },
+  {
+    question: "Which AI tools are supported?",
+    answer: "GDAgent works with any terminal-based AI tool: Claude Code, Gemini CLI, Aider, GitHub Copilot CLI, and more. If it runs in a terminal, it works with GDAgent.",
+  },
+  {
+    question: "What Godot versions are supported?",
+    answer: "GDAgent supports Godot 4.2 and newer. It integrates with your existing Godot installation—no modifications required.",
+  },
+  {
+    question: "What's your refund policy?",
+    answer: "We offer a 30-day money-back guarantee. Details are in our Refund Policy: https://gdagent.github.io/refund",
+  },
+  {
+    question: "Is my code sent to your servers?",
+    answer: "No. GDAgent runs entirely on your machine. Your code never leaves your computer—we don't have servers that process your code. The AI tools you use (Claude, Gemini, etc.) have their own privacy policies.",
+  },
+  {
+    question: "Do I need an internet connection?",
+    answer: "Internet is required for initial activation and periodic revalidation. After activation, GDAgent can run offline for a limited grace period. The AI tools you use typically require internet access to communicate with their respective APIs.",
+  },
+];
+---
+
+<section id="faq" class="py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-6">
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 font-mono text-3xl font-medium tracking-tight md:text-4xl">
+        Frequently Asked Questions
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group rounded-lg border border-[#262626] bg-[#121212]">
+          <summary class="flex cursor-pointer items-center justify-between p-6 font-medium">
+            <span>{faq.question}</span>
+            <svg
+              class="h-5 w-5 shrink-0 text-[#a1a1a1] transition-transform group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="border-t border-[#262626] px-6 py-4 text-[#a1a1a1]">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

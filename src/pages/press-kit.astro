@@ -1,0 +1,171 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const assets = [
+  // Logos - Light (for dark backgrounds)
+  {
+    name: "Logo Light",
+    svg: "/images/gdagent transparent.svg",
+    png: "/images/gdagent transparent.png",
+  },
+  // Logos - Dark (for light backgrounds)
+  {
+    name: "Logo Dark",
+    svg: "/images/gdagent transparent dark.svg",
+    png: "/images/gdagent transparent dark.png",
+  },
+  // Logos - Light With background
+  {
+    name: "Logo Light With Background",
+    svg: "/images/gdagent.svg",
+    png: "/images/gdagent.png",
+  },
+  // Logos - Dark With background
+  {
+    name: "Logo Dark With Background",
+    svg: "/images/gdagent dark.svg",
+    png: "/images/gdagent dark.png",
+  },
+  // Icons - Light
+  {
+    name: "Icon Light",
+    svg: "/images/gdagent icon transparent.svg",
+    png: "/images/gdagent icon transparent.png",
+  },
+  // Icons - Dark
+  {
+    name: "Icon Dark",
+    svg: "/images/gdagent icon transparent dark.svg",
+    png: "/images/gdagent icon transparent dark.png",
+  },
+  // Icons - Light With background
+  {
+    name: "Icon Light With Background",
+    svg: "/images/gdagent icon.svg",
+    png: "/images/gdagent icon.png",
+  },
+  // Icons - Dark With background
+  {
+    name: "Icon Dark With Background",
+    svg: "/images/gdagent icon dark.svg",
+    png: "/images/gdagent icon dark.png",
+  },
+];
+---
+
+<Base title="Press Kit — GDAgent">
+  <Nav />
+  <main class="pt-24">
+    <div class="mx-auto max-w-4xl px-6 py-16">
+      <h1 class="mb-8 font-mono text-4xl font-medium tracking-tight">Press Kit</h1>
+
+      <!-- Product Description -->
+      <section class="mb-12">
+        <h2 class="mb-4 font-mono text-xl font-medium">About GDAgent</h2>
+
+        <div class="space-y-6 rounded-lg border border-[#262626] bg-[#121212] p-6">
+          <div>
+            <h3 class="mb-2 font-mono text-sm text-[#a1a1a1]">Short (One Line)</h3>
+            <p>The Professional AI Development Environment for Godot.</p>
+          </div>
+
+          <div>
+            <h3 class="mb-2 font-mono text-sm text-[#a1a1a1]">Medium (One Paragraph)</h3>
+            <p class="text-[#a1a1a1]">
+              GDAgent is a native terminal application that brings professional AI coding assistants to Godot game development.
+              With support for Claude, Gemini, Aider, and other tools, it provides persistent sessions, smart layouts,
+              and seamless integration with your existing workflow.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="mb-2 font-mono text-sm text-[#a1a1a1]">Long (Full Description)</h3>
+            <p class="text-[#a1a1a1]">
+              GDAgent is a Rust-powered terminal application designed specifically for Godot game developers who want to leverage
+              AI coding assistants in their workflow. Unlike browser-based solutions, GDAgent runs natively on your machine
+              with zero lag and supports offline use after activation (subject to a grace period). It supports all major AI tools including Claude Code, Gemini CLI,
+              Aider, and GitHub Copilot CLI. Features include persistent sessions with auto-save, a built-in prompt library
+              for common Godot tasks, professional split and grid layouts, and a First Run Wizard that automatically detects
+              and configures your environment. GDAgent is available for Windows, macOS, and Linux.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Facts -->
+      <section class="mb-12">
+        <h2 class="mb-4 font-mono text-xl font-medium">Key Facts</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-[#262626] bg-[#121212] p-4">
+            <span class="font-mono text-sm text-[#a1a1a1]">Release</span>
+            <p class="font-medium">2025</p>
+          </div>
+          <div class="rounded-lg border border-[#262626] bg-[#121212] p-4">
+            <span class="font-mono text-sm text-[#a1a1a1]">Platforms</span>
+            <p class="font-medium">Windows, macOS, Linux</p>
+          </div>
+          <div class="rounded-lg border border-[#262626] bg-[#121212] p-4">
+            <span class="font-mono text-sm text-[#a1a1a1]">Price</span>
+            <p class="font-medium">$9.99 Individual / Team coming soon</p>
+          </div>
+          <div class="rounded-lg border border-[#262626] bg-[#121212] p-4">
+            <span class="font-mono text-sm text-[#a1a1a1]">Built With</span>
+            <p class="font-medium">Rust, GTK4</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brand Assets -->
+      <section class="mb-12">
+        <h2 class="mb-4 font-mono text-xl font-medium">Brand Assets</h2>
+        <div class="rounded-lg border border-[#262626] bg-[#121212] p-6">
+          <p class="mb-6 text-sm text-[#a1a1a1]">
+            Logo and icon files for press use. Please do not modify or distort.
+          </p>
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+            {assets.map((asset) => (
+              <div class="flex flex-col overflow-hidden rounded-lg border border-[#262626] transition-colors hover:border-white">
+                <div class="flex h-24 items-center justify-center checkerboard p-4">
+                  <img src={asset.svg} alt={asset.name} class="h-16 object-contain" />
+                </div>
+                <div class="flex items-center justify-between gap-3 bg-[#0a0a0a] px-4 py-3">
+                  <span class="text-sm text-[#a1a1a1]">{asset.name}</span>
+                  <div class="flex items-center gap-2">
+                    <a
+                      href={asset.svg}
+                      class="rounded-md border border-[#262626] px-2.5 py-1 text-xs text-[#a1a1a1] no-underline transition-colors hover:border-white hover:text-white"
+                      download
+                    >
+                      SVG
+                    </a>
+                    <a
+                      href={asset.png}
+                      class="rounded-md border border-[#262626] px-2.5 py-1 text-xs text-[#a1a1a1] no-underline transition-colors hover:border-white hover:text-white"
+                      download
+                    >
+                      PNG
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="mb-12">
+        <h2 class="mb-4 font-mono text-xl font-medium">Contact</h2>
+        <div class="rounded-lg border border-[#262626] bg-[#121212] p-6">
+          <p class="text-[#a1a1a1]">
+            For press inquiries, please contact:<br />
+            <a href="mailto:gdagent@protonmail.com" class="text-white hover:underline">gdagent@protonmail.com</a>
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Base>
