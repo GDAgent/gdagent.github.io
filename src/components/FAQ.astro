@@ -6,7 +6,7 @@ const faqs = [
   },
   {
     question: "Which AI tools are supported?",
-    answer: "GDAgent works with any terminal-based AI tool: Claude Code, Gemini CLI, Aider, GitHub Copilot CLI, and more. If it runs in a terminal, it works with GDAgent.",
+    answer: "Currently supported tools: Claude Code, Google Gemini CLI, Aider, GitHub Copilot CLI, Mistral Vibe, OpenAI Codex CLI, and OpenCode.",
   },
   {
     question: "What Godot versions are supported?",
@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "What's your refund policy?",
-    answer: "We offer a 30-day money-back guarantee. Details are in our Refund Policy: https://gdagent.github.io/refund",
+    answer: 'We offer a 30-day money-back guarantee. Details are in our <a href="/refund" class="text-white underline hover:text-[#a1a1a1]">Refund Policy</a>.',
   },
   {
     question: "Is my code sent to your servers?",
@@ -27,9 +27,9 @@ const faqs = [
 ];
 ---
 
-<section id="faq" class="py-16 md:py-24">
+<section id="faq" class="py-16 md:py-20">
   <div class="mx-auto max-w-3xl px-6">
-    <div class="mb-12 text-center">
+    <div class="anim anim-fade-up mb-12 text-center">
       <h2 class="mb-4 font-mono text-3xl font-medium tracking-tight md:text-4xl">
         Frequently Asked Questions
       </h2>
@@ -37,11 +37,11 @@ const faqs = [
 
     <div class="space-y-4">
       {faqs.map((faq, index) => (
-        <details class="group rounded-lg border border-[#262626] bg-[#121212]">
+        <details class={`anim anim-fade-up anim-d${index + 1} group rounded-lg border border-[#262626] bg-[#121212]`}>
           <summary class="flex cursor-pointer items-center justify-between p-6 font-medium">
             <span>{faq.question}</span>
             <svg
-              class="h-5 w-5 shrink-0 text-[#a1a1a1] transition-transform group-open:rotate-180"
+              class="h-5 w-5 shrink-0 text-[#a1a1a1] transition-transform duration-300 ease-in-out group-open:rotate-180"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -49,11 +49,35 @@ const faqs = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
-          <div class="border-t border-[#262626] px-6 py-4 text-[#a1a1a1]">
-            {faq.answer}
+          <div class="faq-content border-t border-[#262626]">
+            <div class="px-6 py-4 text-[#a1a1a1]" set:html={faq.answer} />
           </div>
         </details>
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('#faq details').forEach((details) => {
+    const content = details.querySelector('.faq-content') as HTMLElement;
+    const summary = details.querySelector('summary')!;
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (details.open) {
+        // Animate close
+        content.style.gridTemplateRows = '0fr';
+        content.addEventListener('transitionend', () => {
+          details.removeAttribute('open');
+        }, { once: true });
+      } else {
+        // Open then animate
+        details.setAttribute('open', '');
+        // Force reflow so the transition fires
+        content.offsetHeight;
+        content.style.gridTemplateRows = '1fr';
+      }
+    });
+  });
+</script>

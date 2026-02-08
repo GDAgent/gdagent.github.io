@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-xs: 24rem;
+
   --color-background: #0a0a0a;
   --color-background-secondary: #121212;
   --color-text-primary: #ffffff;
@@ -56,6 +58,13 @@ html {
   background-color: var(--color-background);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -68,6 +77,73 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* ── Legal / prose content ── */
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose li {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.prose li::marker {
+  color: #a1a1a1;
+}
+
+.prose strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.prose p+p {
+  margin-top: 0.75rem;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.prose thead {
+  border-bottom: 1px solid #404040;
+}
+
+.prose th {
+  padding: 0.625rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.prose td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid #262626;
+  color: #a1a1a1;
+}
+
+.prose tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
 .checkerboard {
   background-image:
     linear-gradient(45deg, #3a3a3a 25%, transparent 25%),
@@ -77,4 +153,122 @@ body {
   background-size: 16px 16px;
   background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
   background-color: #4a4a4a;
+}
+
+/* ── FAQ expand/collapse ── */
+
+#faq details {
+  overflow: hidden;
+}
+
+.faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-content>div {
+  overflow: hidden;
+}
+
+/* ── Scroll-triggered animations ── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.anim {
+  opacity: 0;
+}
+
+.anim.is-visible {
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.anim-fade-up.is-visible {
+  animation-name: fadeInUp;
+  animation-duration: 0.7s;
+}
+
+.anim-fade-in.is-visible {
+  animation-name: fadeIn;
+  animation-duration: 0.7s;
+}
+
+.anim-scale-in.is-visible {
+  animation-name: scaleIn;
+  animation-duration: 0.6s;
+}
+
+/* Stagger delays */
+.anim-d1 {
+  animation-delay: 0.1s !important;
+}
+
+.anim-d2 {
+  animation-delay: 0.2s !important;
+}
+
+.anim-d3 {
+  animation-delay: 0.3s !important;
+}
+
+.anim-d4 {
+  animation-delay: 0.4s !important;
+}
+
+.anim-d5 {
+  animation-delay: 0.5s !important;
+}
+
+.anim-d6 {
+  animation-delay: 0.6s !important;
+}
+
+.anim-d7 {
+  animation-delay: 0.7s !important;
+}
+
+.anim-d8 {
+  animation-delay: 0.8s !important;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }

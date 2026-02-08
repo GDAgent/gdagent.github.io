@@ -9,6 +9,7 @@ const workspaceRoot = path.resolve(__dirname, '..');
 export default defineConfig({
   site: 'https://gdagent.github.io',
   output: 'static',
+  telemetry: false,
   vite: {
     envDir: workspaceRoot,
     plugins: [tailwindcss()],
