@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+import DocsNav from "../components/docs/DocsNav.astro";
+import DocsSidebar from "../components/docs/DocsSidebar.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "GDAgent Documentation" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="GDAgent" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | GDAgent Docs</title>
+  </head>
+  <body class="bg-[#0a0a0a] text-white">
+    <DocsNav />
+
+    <div class="mx-auto max-w-6xl px-6 pt-24 pb-16">
+      <div class="flex gap-12">
+        <DocsSidebar currentPath={currentPath} />
+
+        <main class="min-w-0 flex-1">
+          <article class="docs-prose">
+            <slot />
+          </article>
+        </main>
+      </div>
+    </div>
+
+    <Footer />
+  </body>
+</html>

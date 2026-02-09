@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import DocsLayout from '../../layouts/DocsLayout.astro';
+
+const docs = await getCollection('docs');
+const entry = docs.find(doc => doc.id === 'index.md');
+
+if (!entry) {
+  return Astro.redirect('/');
+}
+const { Content } = await entry.render();
+---
+
+<DocsLayout title={entry.data.title} description={entry.data.description}>
+  <h1>{entry.data.title}</h1>
+  <Content />
+</DocsLayout>
