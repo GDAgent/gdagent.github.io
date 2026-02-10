@@ -72,15 +72,23 @@ const agents = [
       <!-- Hero media -->
       <div class="anim anim-scale-in anim-d4 w-full max-w-5xl">
         <div class="overflow-hidden rounded-xl border border-[#262626] bg-[#121212]">
-          <!-- Replace src with actual screenshot or video -->
-          <img
-            src="/images/hero-screenshot.png"
-            alt="GDAgent interface showing AI-assisted Godot development"
-            width="1200"
-            height="720"
-            class="block w-full"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="/images/hero-screenshot-960.webp 960w, /images/hero-screenshot-1400.webp 1400w, /images/hero-screenshot-1854.webp 1854w"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 90vw, 1200px"
+            />
+            <img
+              src="/images/hero-screenshot.png"
+              alt="GDAgent interface showing AI-assisted Godot development"
+              width="1854"
+              height="1009"
+              class="block h-auto w-full"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
       </div>
     </div>
