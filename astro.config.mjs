@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import remarkGfm from 'remark-gfm';
@@ -14,7 +15,7 @@ export default defineConfig({
   site: 'https://gdagent.github.io',
   output: 'static',
   telemetry: false,
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   markdown: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

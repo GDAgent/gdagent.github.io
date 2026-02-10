@@ -2,16 +2,39 @@
 import Base from "../layouts/Base.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import PrivacyPolicyDe from "../components/legal/PrivacyPolicyDe.astro";
 ---
 
-<Base title="Privacy Policy — GDAgent">
+<Base
+  title="Privacy Policy — GDAgent"
+  description="Read how GDAgent handles personal data for website hosting, license purchases, and support communication under GDPR-compliant policies."
+>
   <Nav />
   <main class="pt-24">
     <div class="mx-auto max-w-3xl px-6 py-16">
-      <h1 class="mb-8 font-mono text-4xl font-medium tracking-tight">Privacy Policy</h1>
-      <p class="mb-4 text-sm text-[#a1a1a1]">Last Updated: 2026-02-08</p>
+      <h1 id="privacy-title" class="mb-3 font-mono text-4xl font-medium tracking-tight">Privacy Policy</h1>
+      <div class="mb-6 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-[#666666]">
+        <button
+          type="button"
+          data-policy-switch="en"
+          class="text-[#a1a1a1] transition-colors hover:text-white"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+        <span>/</span>
+        <button
+          type="button"
+          data-policy-switch="de"
+          class="transition-colors hover:text-white"
+          aria-pressed="false"
+        >
+          DE
+        </button>
+      </div>
+      <p id="privacy-updated" class="mb-4 text-sm text-[#a1a1a1]">Last Updated: 2026-02-08</p>
 
-      <div class="prose prose-invert max-w-none space-y-6 text-[#a1a1a1]">
+      <div id="privacy-content-en" data-policy-lang="en" class="prose prose-invert max-w-none space-y-6 text-[#a1a1a1]">
         <section>
           <h2 class="mb-4 font-mono text-xl font-medium text-white">1. Data Controller</h2>
           <p>The data controller responsible for this website and the GDAgent software is:</p>
@@ -230,7 +253,70 @@ import Footer from "../components/Footer.astro";
           </p>
         </section>
       </div>
+
+      <div id="privacy-content-de" data-policy-lang="de" class="hidden">
+        <PrivacyPolicyDe />
+      </div>
     </div>
   </main>
+  <script>
+    const policyTitle = document.getElementById("privacy-title");
+    const policyUpdated = document.getElementById("privacy-updated");
+    const enContent = document.getElementById("privacy-content-en");
+    const deContent = document.getElementById("privacy-content-de");
+    const switches = document.querySelectorAll("[data-policy-switch]");
+
+    const labels = {
+      en: {
+        title: "Privacy Policy",
+        updated: "Last Updated: 2026-02-08",
+      },
+      de: {
+        title: "Datenschutzerklärung",
+        updated: "Stand: 2026-02-08",
+      },
+    };
+
+    function setPolicyLanguage(lang, updateHash = false) {
+      const nextLang = lang === "de" ? "de" : "en";
+      const isGerman = nextLang === "de";
+
+      enContent?.classList.toggle("hidden", isGerman);
+      deContent?.classList.toggle("hidden", !isGerman);
+
+      if (policyTitle) {
+        policyTitle.textContent = labels[nextLang].title;
+      }
+
+      if (policyUpdated) {
+        policyUpdated.textContent = labels[nextLang].updated;
+      }
+
+      switches.forEach((button) => {
+        const isActive = button.getAttribute("data-policy-switch") === nextLang;
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+        button.classList.toggle("text-[#a1a1a1]", isActive);
+      });
+
+      if (updateHash) {
+        const nextHash = isGerman ? "#de" : "";
+        history.replaceState(null, "", `${window.location.pathname}${nextHash}`);
+      }
+    }
+
+    const initialLanguage = window.location.hash === "#de" ? "de" : "en";
+    setPolicyLanguage(initialLanguage);
+
+    switches.forEach((button) => {
+      button.addEventListener("click", () => {
+        const lang = button.getAttribute("data-policy-switch") || "en";
+        setPolicyLanguage(lang, true);
+      });
+    });
+
+    window.addEventListener("hashchange", () => {
+      setPolicyLanguage(window.location.hash === "#de" ? "de" : "en");
+    });
+  </script>
   <Footer />
 </Base>

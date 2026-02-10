@@ -12,7 +12,7 @@ const footerLinks = {
     { label: "Support", href: "mailto:gdagent@protonmail.com" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy", hrefDe: "/datenschutz" },
+    { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
     { label: "Refund Policy", href: "/refund" },
     { label: "Imprint", href: "/imprint" },
@@ -22,7 +22,7 @@ const footerLinks = {
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[#262626] py-12">
+<footer class="border-t border-[#262626] py-10 md:py-11">
   <div class="mx-auto max-w-6xl px-6">
     <div class="anim anim-fade-up grid gap-8 md:grid-cols-4">
       <!-- Brand -->
@@ -69,7 +69,7 @@ const currentYear = new Date().getFullYear();
         <ul class="list-none space-y-2 p-0 m-0">
           {footerLinks.legal.map((link) => (
             <li>
-              <a href={link.href} class="text-sm text-white no-underline transition-colors hover:text-[#a1a1a1]" data-href-de={link.hrefDe}>
+              <a href={link.href} class="text-sm text-white no-underline transition-colors hover:text-[#a1a1a1]">
                 {link.label}
               </a>
             </li>
@@ -78,7 +78,7 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#262626] pt-8 md:flex-row">
+    <div class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-[#262626] pt-6 md:flex-row">
       <p class="text-sm text-[#a1a1a1]">
         &copy; {currentYear} GDAgent™ Team.
       </p>
@@ -122,24 +122,10 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="mt-8">
+    <div class="mt-6">
       <p class="text-[10px] uppercase tracking-[0.2em] text-[#525252]">
         Brands are the property of their respective owners.
       </p>
     </div>
   </div>
 </footer>
-
-<script>
-  // Swap privacy link to German version for German-speaking users
-  const isDE = navigator.language.startsWith("de");
-  if (isDE) {
-    document.querySelectorAll("a[data-href-de]").forEach((a) => {
-      const de = a.getAttribute("data-href-de");
-      if (de) {
-        a.setAttribute("href", de);
-        a.textContent = "Datenschutzerklärung";
-      }
-    });
-  }
-</script>

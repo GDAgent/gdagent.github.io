@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base
+  title="Page Not Found — GDAgent"
+  description="The page you requested could not be found on the GDAgent website."
+  robots="noindex,follow"
+>
+  <Nav />
+  <main class="pt-24 pb-8 md:pb-10">
+    <section class="mx-auto max-w-3xl px-6 py-16 text-center md:py-20">
+      <p class="mb-4 font-mono text-sm tracking-[0.2em] text-[#525252]">404</p>
+      <h1 class="mb-4 font-mono text-4xl font-medium tracking-tight md:text-5xl">Page Not Found</h1>
+      <p class="mx-auto mb-8 max-w-xl text-[#a1a1a1] md:mb-10">
+        The page you are looking for does not exist or has moved. Use one of the links below to get back on track.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/"
+          class="inline-flex items-center rounded border border-white bg-white px-6 py-3 font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#f0f0f0] hover:text-[#0a0a0a]"
+        >
+          Go Home
+        </a>
+        <a
+          href="/docs"
+          class="inline-flex items-center rounded border border-[#262626] px-6 py-3 font-medium text-white no-underline transition-colors hover:border-white"
+        >
+          Browse Docs
+        </a>
+        <a
+          href="/press-kit"
+          class="inline-flex items-center rounded border border-[#262626] px-6 py-3 font-medium text-white no-underline transition-colors hover:border-white"
+        >
+          Press Kit
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
