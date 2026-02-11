@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const toPath = (id: string) => `/blog/${id.replace(/\.md$/, '')}`;
+
+const readingTime = (text: string) => {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+};
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog', ({ data }) => data.draft !== true)).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  );
+
+  return posts.map((entry, index) => ({
+    params: { slug: entry.id.replace(/\.md$/, '') },
+    props: {
+      entry,
+      newerPost: index > 0 ? posts[index - 1] : null,
+      olderPost: index < posts.length - 1 ? posts[index + 1] : null,
+    },
+  }));
+}
+
+const { entry, newerPost, olderPost } = Astro.props;
+const { Content } = await entry.render();
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const minutes = readingTime(entry.body);
+---
+
+<Base title={`${entry.data.title} - GDAgent Blog`} description={entry.data.description} type="article">
+  <Nav />
+
+  <main class="pt-24">
+    <section class="border-b border-[#262626]">
+      <div class="mx-auto max-w-4xl px-6 py-12 md:py-14">
+        <a href="/blog" class="text-sm text-[#a1a1a1] no-underline transition-colors hover:text-white">Back to blog</a>
+
+        <h1 class="anim anim-fade-up mt-4 font-mono text-4xl font-medium tracking-tight md:text-5xl">
+          {entry.data.title}
+        </h1>
+
+        <p class="anim anim-fade-up anim-d1 mt-4 max-w-3xl text-base leading-relaxed text-[#a1a1a1] md:text-lg">
+          {entry.data.description}
+        </p>
+
+        <div class="anim anim-fade-up anim-d2 mt-6 flex flex-wrap items-center gap-2.5 text-sm text-[#808080]">
+          <time datetime={entry.data.date.toISOString()}>{dateFormatter.format(entry.data.date)}</time>
+          <span class="h-1 w-1 rounded-full bg-[#404040]"></span>
+          <span>{entry.data.author}</span>
+          <span class="h-1 w-1 rounded-full bg-[#404040]"></span>
+          <span>{minutes} min read</span>
+          {entry.data.updatedDate && (
+            <>
+              <span class="h-1 w-1 rounded-full bg-[#404040]"></span>
+              <span>Updated {dateFormatter.format(entry.data.updatedDate)}</span>
+            </>
+          )}
+        </div>
+
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-4xl px-6 py-10 md:py-12">
+      <article class="docs-prose">
+        <Content />
+      </article>
+
+      <div class="mt-10 grid gap-3 text-sm md:grid-cols-2">
+        {newerPost ? (
+          <a
+            href={toPath(newerPost.id)}
+            class="rounded border border-[#262626] bg-[#121212] px-3 py-2 no-underline hover:border-[#404040]"
+          >
+            Newer: {newerPost.data.title}
+          </a>
+        ) : (
+          <a
+            href="/docs/changelog"
+            class="rounded border border-[#262626] bg-[#121212] px-3 py-2 no-underline hover:border-[#404040]"
+          >
+            Changelog
+          </a>
+        )}
+
+        {olderPost ? (
+          <a
+            href={toPath(olderPost.id)}
+            class="rounded border border-[#262626] bg-[#121212] px-3 py-2 text-right no-underline hover:border-[#404040]"
+          >
+            Older: {olderPost.data.title}
+          </a>
+        ) : (
+          <a
+            href="/blog"
+            class="rounded border border-[#262626] bg-[#121212] px-3 py-2 text-right no-underline hover:border-[#404040]"
+          >
+            View all posts
+          </a>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

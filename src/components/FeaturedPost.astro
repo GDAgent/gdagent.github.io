@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+
+const toPath = (id: string) => `/blog/${id.replace(/\.md$/, '')}`;
+
+const readingTime = (text: string) => {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+};
+
+const posts = (await getCollection('blog', ({ data }) => data.draft !== true)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const featured = posts[0] ?? null;
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<section id="blog-highlight" class="py-16 md:py-20">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="anim anim-fade-up mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-10">
+      <div>
+        <p class="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-[#808080]">From The Blog</p>
+        <h2 class="font-mono text-3xl font-medium tracking-tight md:text-4xl">Featured Post</h2>
+      </div>
+      <a
+        href="/blog"
+        class="rounded-lg border border-[#262626] bg-[#121212] px-4 py-2 text-sm font-medium text-white no-underline transition-colors hover:border-[#404040]"
+      >
+        View all posts
+      </a>
+    </div>
+
+    {featured ? (
+      <article class="anim anim-fade-up anim-d1 rounded-2xl border border-[#262626] bg-[linear-gradient(160deg,#161616_0%,#101010_55%,#0d0d0d_100%)] p-6 md:p-8">
+        <div class="flex flex-wrap items-center gap-2.5 text-xs text-[#808080]">
+          <time datetime={featured.data.date.toISOString()}>{dateFormatter.format(featured.data.date)}</time>
+          <span class="h-1 w-1 rounded-full bg-[#404040]"></span>
+          <span>{readingTime(featured.body)} min read</span>
+        </div>
+
+        <h3 class="mt-4 max-w-3xl font-mono text-2xl font-medium leading-snug text-white md:text-3xl">
+          <a href={toPath(featured.id)} class="text-white no-underline transition-colors hover:text-[#d4d4d4]">
+            {featured.data.title}
+          </a>
+        </h3>
+
+        <p class="mt-4 max-w-3xl text-base leading-relaxed text-[#a1a1a1] md:text-lg">{featured.data.description}</p>
+
+        <div class="mt-6">
+          <a
+            href={toPath(featured.id)}
+            class="inline-flex items-center gap-2 rounded-lg border border-[#262626] bg-white px-4 py-2.5 text-sm font-medium text-black no-underline transition-colors hover:bg-[#e5e5e5]"
+          >
+            Read featured post
+          </a>
+        </div>
+      </article>
+    ) : (
+      <div class="anim anim-fade-up anim-d1 rounded-2xl border border-[#262626] bg-[#121212] px-6 py-8 text-[#a1a1a1]">
+        No blog posts published yet. Add entries in <code>src/content/blog</code> to feature one here.
+      </div>
+    )}
+  </div>
+</section>

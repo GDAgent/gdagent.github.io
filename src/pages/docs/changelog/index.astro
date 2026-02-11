@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+
+const typeLabels = {
+  'major-release': 'Major Release',
+  'minor-release': 'Minor Release',
+} as const;
+
+const entries = (await getCollection('changelog', ({ data }) => data.draft !== true)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const renderedEntries = await Promise.all(
+  entries.map(async (entry) => {
+    const { Content } = await entry.render();
+
+    return {
+      entry,
+      slug: entry.id.replace(/\.md$/, ''),
+      Content,
+    };
+  })
+);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<DocsLayout
+  title="Changelog"
+  description="Track every major and minor GDAgent release in one timeline."
+>
+  <div class="mb-6">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <h1 class="!mb-0">Changelog</h1>
+      <a
+        href="/changelog.xml"
+        class="inline-flex items-center gap-2 rounded border border-[#404040] bg-[#121212] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] !text-[#a1a1a1] !no-underline transition-colors hover:border-white hover:!text-white"
+      >
+        Subscribe via RSS
+      </a>
+    </div>
+    <p class="m-0 mt-3 text-sm text-[#808080]">
+      {renderedEntries.length} published update{renderedEntries.length === 1 ? '' : 's'}
+    </p>
+  </div>
+
+  {renderedEntries.length === 0 ? (
+    <p>
+      No updates are published yet. Add entries to <code>src/content/changelog</code> to begin your public
+      release timeline.
+    </p>
+  ) : (
+    <div class="m-0 space-y-6 p-0">
+      {renderedEntries.map(({ entry, slug, Content }) => (
+        <article id={slug} class="rounded-lg border border-[#262626] bg-[#121212] p-5 md:p-6">
+          <div class="flex flex-wrap items-center gap-2.5 text-xs text-[#808080]">
+            <time datetime={entry.data.date.toISOString()}>{dateFormatter.format(entry.data.date)}</time>
+            <span class="h-1 w-1 rounded-full bg-[#404040]"></span>
+            <span>{typeLabels[entry.data.type]}</span>
+            {entry.data.version && (
+              <>
+                <span class="h-1 w-1 rounded-full bg-[#404040]"></span>
+                <span class="rounded border border-[#404040] px-2 py-0.5 font-mono text-[11px] text-[#d4d4d4]">
+                  {entry.data.version}
+                </span>
+              </>
+            )}
+          </div>
+
+          <h2 class="mt-3 border-none pb-0 text-xl md:text-2xl">{entry.data.title}</h2>
+
+          <p class="mb-0 mt-3 text-sm leading-relaxed text-[#a1a1a1] md:text-base">{entry.data.description}</p>
+
+          <div class="mt-5">
+            <Content />
+          </div>
+        </article>
+      ))}
+    </div>
+  )}
+</DocsLayout>
