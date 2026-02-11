@@ -36,7 +36,7 @@ Supported tools include Claude Code, Gemini CLI, Aider, GitHub Copilot CLI, Mist
 ## Pricing at launch
 
 - Individual license: $8.99 one-time (normally $9.99)
-- 7-day free trial with full access
+- 3-day free trial with full access
 - 2 machine activations per license
 - 30-day money-back guarantee
 

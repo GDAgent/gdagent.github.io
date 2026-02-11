@@ -24,7 +24,7 @@ Then activate on your new machine.
 
 ## Offline Use
 
-After activation, GDAgent works offline for up to 7 days. It will silently revalidate when you're back online.
+After activation, GDAgent works offline for up to 3 days. It will silently revalidate when you're back online.
 
 ## Activation Limits
 
