@@ -42,7 +42,7 @@ Each license allows **2 simultaneous activations**. Perfect for a desktop + lapt
 
 ### Does it work offline?
 
-Yes. After activation, GDAgent works offline for up to 7 days. It revalidates automatically when you're back online.
+Yes. After activation, GDAgent works offline for up to 3 days. It revalidates automatically when you're back online.
 
 ### Do I need an internet connection?
 
