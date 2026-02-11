@@ -10,6 +10,10 @@ export const docsNavigation: NavItem[] = [
     href: '/docs',
   },
   {
+    label: 'Changelog',
+    href: '/docs/changelog',
+  },
+  {
     label: 'Getting Started',
     href: '/docs/getting-started/installation',
     children: [
@@ -48,7 +52,11 @@ export const docsNavigation: NavItem[] = [
 export function isActiveLink(currentPath: string, href: string): boolean {
   const normalizedCurrent = currentPath.replace(/\/$/, '') || '/';
   const normalizedHref = href.replace(/\/$/, '') || '/';
-  return normalizedCurrent === normalizedHref;
+
+  if (normalizedCurrent === normalizedHref) return true;
+  if (normalizedHref === '/docs/changelog' && normalizedCurrent.startsWith('/docs/changelog/')) return true;
+
+  return false;
 }
 
 export function isActiveSection(currentPath: string, item: NavItem): boolean {

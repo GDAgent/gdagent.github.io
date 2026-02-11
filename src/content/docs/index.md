@@ -13,6 +13,10 @@ New to GDAgent? Start here:
 - [Quick Start](/docs/getting-started/quick-start) - Get up and running in 5 minutes
 - [Activation](/docs/getting-started/activation) - Activate your license
 
+## Product Updates
+
+- [Changelog](/docs/changelog) - Track every major and minor release
+
 ## Using GDAgent
 
 Learn how to use GDAgent in your projects:
