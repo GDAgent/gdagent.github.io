@@ -16,14 +16,6 @@ New to GDAgent? Start here:
 
 - [Changelog](/docs/changelog) - Track every major and minor release
 
-## Using GDAgent
-
-Learn how to use GDAgent in your projects:
-
-- [Editor Overview](/docs/using-gdagent/editor) - The GDAgent panel in Godot
-- [Sessions & Tabs](/docs/using-gdagent/sessions) - Organize your AI conversations
-- [Keyboard Shortcuts](/docs/using-gdagent/shortcuts) - Work faster with hotkeys
-
 ## Reference
 
 - [CLI Reference](/docs/reference/cli) - Command-line interface help

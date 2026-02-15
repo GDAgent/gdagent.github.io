@@ -3,159 +3,37 @@ title: "CLI Reference"
 description: "GDAgent command-line interface for automation and scripting"
 ---
 
-`gdagent` is a single binary with both GUI and CLI modes:
+## Synopsis
 
-- `gdagent` opens the GUI manager
-- `gdagent <command>` runs in CLI mode
-
-## Global Options
-
-| Option      | Description                                         |
-| ----------- | --------------------------------------------------- |
-| `--json`    | Output machine-readable JSON for supported commands |
-| `--help`    | Show help                                           |
-| `--version` | Show version                                        |
-
-## JSON Output Format
-
-When `--json` is enabled, command output is wrapped like this:
-
-```json
-{
-  "success": true,
-  "data": { "...": "..." }
-}
+```bash
+gdagent [--json] [--help] [--version] [subcommand]
 ```
 
-On failure:
-
-```json
-{
-  "success": false,
-  "error": "human-readable error message"
-}
-```
+Without a subcommand, `gdagent` launches the GUI manager.
 
 ## Commands
 
-### `gdagent install`
+- `install` - Install GDAgent addon to a Godot project
+- `uninstall` - Uninstall GDAgent addon from a Godot project
+- `list-projects` - List detected Godot projects
+- `status` - Show GDAgent installation status for a project
+- `activate` - Activate a license key
+- `deactivate` - Deactivate the current license from this machine
+- `doctor` - Run diagnostic checks and generate support report
+- `manpage` - Generate a man page for `gdagent`
+- `repair` - Repair an existing GDAgent installation
 
-Install GDAgent into a Godot project.
-
-```bash
-gdagent install -p /path/to/project
-```
-
-| Option                 | Description                                            |
-| ---------------------- | ------------------------------------------------------ |
-| `-p, --project <PATH>` | Godot project directory (must contain `project.godot`) |
-| `--dry-run`            | Print what would happen without installing             |
-
-Notes:
-- A valid license or active trial is required for actual installation.
-- On install, existing `addons/gdagent` is replaced before reinstalling.
-
-### `gdagent uninstall`
-
-Remove GDAgent from a project.
+For command-specific flags and arguments:
 
 ```bash
-gdagent uninstall -p /path/to/project
+gdagent <command> --help
 ```
 
-| Option                 | Description             |
-| ---------------------- | ----------------------- |
-| `-p, --project <PATH>` | Godot project directory |
+## JSON Output
 
-### `gdagent repair`
+`--json` is supported for machine-readable output on CLI workflow commands.
 
-Repair an existing installation (reinstalls the addon).
-
-```bash
-gdagent repair -p /path/to/project
-```
-
-| Option                 | Description             |
-| ---------------------- | ----------------------- |
-| `-p, --project <PATH>` | Godot project directory |
-
-### `gdagent status`
-
-Show install state for a project.
-
-```bash
-gdagent status -p /path/to/project
-```
-
-| Option                 | Description             |
-| ---------------------- | ----------------------- |
-| `-p, --project <PATH>` | Godot project directory |
-
-Possible status values include:
-- `Not installed`
-- `Installed`
-- `Installed (vX.Y.Z)`
-- `Incomplete installation (missing components)`
-- `Corrupted installation`
-
-### `gdagent list-projects`
-
-Scan and list detected Godot projects.
-
-```bash
-gdagent list-projects
-```
-
-Sources include Godot project lists, recent directories, configured search paths, and current directory scanning.
-
-### `gdagent activate`
-
-Activate a license key.
-
-```bash
-gdagent activate
-```
-
-Behavior:
-- In interactive terminals, `gdagent` prompts for the key.
-- In non-interactive mode, the key is read from `stdin`.
-
-Example:
-
-```bash
-printf '%s' "$GDAGENT_LICENSE_KEY" | gdagent activate
-```
-
-### `gdagent deactivate`
-
-Deactivate the current machine.
-
-```bash
-gdagent deactivate
-```
-
-### `gdagent doctor`
-
-Run diagnostics and print a support report.
-
-```bash
-gdagent doctor
-```
-
-The report includes:
-- version/build info
-- system info
-- license status
-- Godot detection
-- AI tool detection
-- config snapshot
-- detected projects
-
-### `gdagent`
-
-With no subcommand, launches the GUI manager.
-
-## CI/CD Example
+## Automation Example
 
 ```yaml
 - name: Activate and install GDAgent
