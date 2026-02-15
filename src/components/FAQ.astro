@@ -1,4 +1,6 @@
 ---
+import { exampleAgentList } from "../utils/agents";
+
 const faqs = [
   {
     question: "How many machines can I activate?",
@@ -10,7 +12,7 @@ const faqs = [
   },
   {
     question: "What Godot versions are supported?",
-    answer: "GDAgent supports Godot 4.2 and newer. It integrates with your existing Godot installation—no modifications required.",
+    answer: "GDAgent supports Godot 4.6 and newer. It integrates with your existing Godot installation—no modifications required.",
   },
   {
     question: "What's your refund policy?",
@@ -18,7 +20,7 @@ const faqs = [
   },
   {
     question: "Is my code sent to your servers?",
-    answer: "No. GDAgent runs entirely on your machine. Your code never leaves your computer—we don't have servers that process your code. The AI tools you use (Claude, Gemini, etc.) have their own privacy policies.",
+    answer: `No. GDAgent runs entirely on your machine. Your code never leaves your computer—we don't have servers that process your code. The AI tools you use (${exampleAgentList}, etc.) have their own privacy policies.`,
   },
   {
     question: "Do I need an internet connection?",
