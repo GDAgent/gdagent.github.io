@@ -5,7 +5,7 @@ description: "Frequently asked questions about GDAgent"
 
 ## What is GDAgent?
 
-GDAgent is a Godot editor plugin that brings AI coding assistants directly into your development workflow. It provides a terminal emulator inside Godot where you can run Claude Code, Gemini CLI, Aider, and other AI tools with full access to your project.
+GDAgent is a Godot editor plugin that brings AI coding assistants directly into your development workflow. It provides a terminal emulator inside Godot where you can run CLI-based AI tools with full access to your project.
 
 ## Which AI tools are supported?
 
@@ -23,11 +23,11 @@ GDAgent automatically detects which of these tools you have installed.
 
 ## Do I need my own API keys?
 
-Yes. GDAgent provides the terminal integration — you bring your own AI tool and API keys. Each AI tool has its own pricing and setup.
+Yes. GDAgent provides the terminal integration — you bring your own API keys or subscriptions. Each AI tool has its own pricing.
 
 ## Is my code sent to your servers?
 
-No. GDAgent runs entirely on your machine. Your code never leaves your computer — we don't have servers that process your code. The AI tools you use (Claude, Gemini, etc.) have their own privacy policies.
+No. GDAgent runs entirely on your machine. Your code never leaves your computer — we don't have servers that process your code. The AI tools you use (Claude Code, Google Gemini CLI, OpenCode, etc.) have their own privacy policies.
 
 ## Licensing
 
@@ -37,12 +37,12 @@ Each license allows **2 simultaneous activations**. Perfect for a desktop + lapt
 
 ### How do I move my license?
 
-1. On the old machine: Launch `gdagent`, go to **License** tab, click **Deactivate**
-2. On the new machine: Launch `gdagent`, go to **License** tab, enter your key and click **Activate**
+1. On the old machine: Launch `gdagent`, click **Deactivate**
+2. On the new machine: Launch `gdagent`, enter your key and click **Activate**
 
 ### Does it work offline?
 
-Yes. After activation, GDAgent works offline for up to 3 days. It revalidates automatically when you're back online.
+Yes. After activation, GDAgent works offline for up to 7 days. It revalidates automatically when you’re back online.
 
 ### Do I need an internet connection?
 
@@ -56,17 +56,17 @@ We offer a 30-day money-back guarantee. See our [Refund Policy](/refund) for det
 
 ### Can I use it in multiple Godot projects?
 
-Yes. Run `gdagent install` for each project. There's no limit on the number of projects.
+Yes. Press **Install** for each project in `gdagent`. There's no limit on the number of projects.
 
 ### How do I update?
 
 1. Download the latest version from your purchase email
-2. Launch `gdagent`, go to **Projects** tab
-3. Select your project and click **Repair**
+2. Launch `gdagent`
+3. Select your project and click **Install**
 
 ### What Godot versions are supported?
 
-Godot 4.2 and later.
+Godot 4.6 and later.
 
 ## Troubleshooting
 

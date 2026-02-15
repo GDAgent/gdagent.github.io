@@ -22,19 +22,15 @@ The signature file is missing or mismatched.
 
 1. Check your internet connection
 2. Try again in a few minutes
-3. If it persists, run `gdagent doctor` and contact support
+3. If it persists, run `gdagent doctor` and [contact support](/docs/support/contact)
 
 ### "Activation limit reached"
 
 You've used both activations. Either:
-- Deactivate from another machine: `gdagent deactivate`
-- Contact support to reset activations
+- Deactivate from another machine: Press **Deadctivate** in `gdagent`
+- [Contact support](/docs/support/contact) to reset activations
 
 ## Editor Issues
-
-### The GDAgent panel is blank
-
-Try closing and reopening Godot. If it persists, run repair.
 
 ### Terminal not responding
 
@@ -42,14 +38,8 @@ Press `Ctrl+C` to interrupt any stuck process, or close and reopen the tab.
 
 ### AI tool not detected
 
-Make sure the AI tool is installed and in your system PATH. Run `gdagent doctor` to see which tools are detected.
+Make sure the AI tool is installed and in your system PATH.
 
 ## Still Stuck?
 
-Run diagnostics and contact support:
-
-```bash
-gdagent doctor
-```
-
-Email the output to [gdagent@protonmail.com](mailto:gdagent@protonmail.com).
+[Contact support](/docs/support/contact).

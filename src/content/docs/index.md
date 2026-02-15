@@ -9,9 +9,8 @@ Welcome to the official documentation for GDAgent, the professional AI developme
 
 New to GDAgent? Start here:
 
-- [Installation](/docs/getting-started/installation) - Download and set up GDAgent
-- [Quick Start](/docs/getting-started/quick-start) - Get up and running in 5 minutes
-- [Activation](/docs/getting-started/activation) - Activate your license
+- [Installation](/docs/getting-started/installation) - Download and run GDAgent
+- [Quick Start & Activation](/docs/getting-started/quick-start) - Set up your workflow
 
 ## Product Updates
 
@@ -27,7 +26,7 @@ Learn how to use GDAgent in your projects:
 
 ## Reference
 
-- [CLI Reference](/docs/reference/cli) - Command-line interface for automation
+- [CLI Reference](/docs/reference/cli) - Command-line interface help
 
 ## Support
 

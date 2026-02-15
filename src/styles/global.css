@@ -323,6 +323,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.docs-prose > :last-child {
+  margin-bottom: 0;
+}
+
 .docs-prose a {
   color: #ffffff;
   text-decoration: underline;

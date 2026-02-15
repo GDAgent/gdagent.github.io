@@ -63,10 +63,10 @@ const imageUrl = new URL(image, seoBase).toString();
     <title>{title} | GDAgent Docs</title>
   </head>
   <body class="bg-[#0a0a0a] text-white">
-    <Nav />
+    <Nav showDocsSidebarToggle={true} />
 
-    <div class="mx-auto max-w-6xl px-6 pt-24 pb-16">
-      <div class="flex gap-12">
+    <div class="mx-auto max-w-6xl px-6 pt-24 pb-8 md:pb-12">
+      <div class="flex items-start gap-12">
         <DocsSidebar currentPath={currentPath} />
 
         <main class="min-w-0 flex-1">

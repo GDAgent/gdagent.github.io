@@ -18,8 +18,7 @@ export const docsNavigation: NavItem[] = [
     href: '/docs/getting-started/installation',
     children: [
       { label: 'Installation', href: '/docs/getting-started/installation' },
-      { label: 'Quick Start', href: '/docs/getting-started/quick-start' },
-      { label: 'Activation', href: '/docs/getting-started/activation' },
+      { label: 'Quick Start & Activation', href: '/docs/getting-started/quick-start' },
     ],
   },
   {

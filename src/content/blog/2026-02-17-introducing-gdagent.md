@@ -1,37 +1,47 @@
 ---
 title: "Introducing GDAgent: Bringing AI to the Godot Editor"
-description: "Launch day is here. GDAgent puts native AI terminal workflows directly inside Godot so you can ship faster without context switching."
+description: "Launch day is here. GDAgent puts native AI terminal workflows directly inside Godot so you can ship faster."
 date: 2026-02-17
 author: "GDAgent Team"
 draft: false
 ---
 
-Every Godot developer knows this loop:
+Every Godot developer who does AI-assisted game development knows this loop:
 
 1. Hit a problem in-editor.
 2. Switch to a browser tab.
-3. Paste code into an AI assistant.
+3. Paste code into a chat.
 4. Copy the response back into Godot.
 5. Repeat.
 
-That context switching breaks flow. GDAgent exists to remove it.
+This is not very efficient. A better would be:
+
+1. Open a terminal.
+2. Paste code into an AI assistant.
+3. Wait for the generation to complete.
+4. Maybe open another terminal in the meantime.
+5. Track all AI agent sessions manually and move the windows around.
+6. Reopen the terminals the next time you work on the project again.
+7. Repeat.
+
+However, this is still extremely cumbersome and breaks your flow each session. GDAgent exists to remove this friction.
 
 ## Why we built GDAgent
 
 GDAgent started as an internal tool to keep AI help where development actually happens: inside Godot.
 
-Instead of embedding a web view, we built a native terminal experience in the bottom dock so CLI-based AI tools can run directly in your project workflow.
+Instead of embedding a web view, we built a native terminal experience so CLI-based AI tools can run directly in your project workflow.
 
 ## What is available today
 
 - Native terminal in Godot (Rust + GDExtension backend)
 - Persistent AI sessions across editor restarts
-- Split and grid layouts for multi-agent workflows
+- Split layouts for multi-agent workflows
 - First Run Wizard for quick setup
 - Prompt templates for common Godot tasks
 - One-click install through GDAgent Manager
 
-Supported tools include Claude Code, Gemini CLI, Aider, GitHub Copilot CLI, Mistral Vibe, OpenAI Codex CLI, and OpenCode.
+Supported tools include Claude Code, Google Gemini CLI, Aider, GitHub Copilot CLI, Mistral Vibe, OpenAI Codex CLI, and OpenCode.
 
 ## Pricing at launch
 
@@ -46,10 +56,10 @@ Launch code: `LAUNCH10` for an additional 10% off for a limited time.
 
 Current roadmap priorities include:
 
-- macOS support (Intel + Apple Silicon)
+- macOS support
 - Godot MCP server for deeper project interaction
-- Project-aware context indexing
 - Auto-snapshots before AI edits
+- [...and more](/#roadmap)
 
 ## Try it and tell us what to build
 
