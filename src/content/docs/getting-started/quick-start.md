@@ -19,13 +19,13 @@ Double-click `gdagent` (or `gdagent.exe` on Windows) to open the installer.
 
 ## 4. Open Godot
 
-Open your project in Godot. You'll see the GDAgent panel in the bottom dock.
+Open your project in Godot. You'll see the GDAgent tab at the top.
 
 ## 5. Start Coding with AI
 
-1. Click the **+** button to open a new AI agent tab
+1. Click the **Add Your First Agent Tab** button to open a new AI agent tab if you haven't already
 2. Select your preferred AI tool
-3. Start chatting with your AI assistant
+3. Start working with your AI assistant
 
 The AI has full context of your Godot project and can help you write GDScript, create scenes, debug issues, and more.
 
@@ -66,6 +66,6 @@ printf '%s' "$GDAGENT_LICENSE_KEY" | gdagent activate
 
 ## What's Next?
 
-- [Editor Overview](/docs/using-gdagent/editor) - Learn the GDAgent interface
-- [Sessions & Tabs](/docs/using-gdagent/sessions) - Organize multiple conversations
-- [Keyboard Shortcuts](/docs/using-gdagent/shortcuts) - Speed up your workflow
+- [CLI Reference](/docs/reference/cli) - Command-line usage and automation
+- [FAQ](/docs/support/faq) - Common questions and answers
+- [Troubleshooting](/docs/support/troubleshooting) - Fix common issues quickly

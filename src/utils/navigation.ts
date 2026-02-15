@@ -22,15 +22,6 @@ export const docsNavigation: NavItem[] = [
     ],
   },
   {
-    label: 'Using GDAgent',
-    href: '/docs/using-gdagent/editor',
-    children: [
-      { label: 'Editor Overview', href: '/docs/using-gdagent/editor' },
-      { label: 'Sessions & Tabs', href: '/docs/using-gdagent/sessions' },
-      { label: 'Keyboard Shortcuts', href: '/docs/using-gdagent/shortcuts' },
-    ],
-  },
-  {
     label: 'Reference',
     href: '/docs/reference/cli',
     children: [
