@@ -4,13 +4,16 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
-  return docs.map((entry) => {
-    // Strip .md extension from the id
+  return docs.flatMap((entry) => {
+    // Astro may expose ids with or without .md depending on collection mode.
     const slug = entry.id.replace(/\.md$/, '');
-    return {
-      params: { slug: slug === 'index' ? undefined : slug },
-      props: { entry },
-    };
+    if (slug === 'index') return [];
+    return [
+      {
+        params: { slug },
+        props: { entry },
+      },
+    ];
   });
 }
 
