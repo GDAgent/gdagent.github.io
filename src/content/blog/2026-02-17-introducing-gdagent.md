@@ -14,7 +14,7 @@ Every Godot developer who does AI-assisted game development knows this loop:
 4. Copy the response back into Godot.
 5. Repeat.
 
-This is not very efficient. A better would be:
+This is not very efficient. A better loop would be this:
 
 1. Open a terminal.
 2. Paste code into an AI assistant.
@@ -45,12 +45,10 @@ Supported tools include Claude Code, Google Gemini CLI, Aider, GitHub Copilot CL
 
 ## Pricing at launch
 
-- Individual license: $8.99 one-time (normally $9.99)
+- Individual license: $8.99 one-time with discount code `LAUNCH10` (limited time only, normally $9.99)
 - 3-day free trial with full access
 - 2 machine activations per license
 - 30-day money-back guarantee
-
-Launch code: `LAUNCH10` for an additional 10% off for a limited time.
 
 ## What comes next
 
