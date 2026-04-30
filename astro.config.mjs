@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const workspaceRoot = path.resolve(__dirname, '..');
 
 export default defineConfig({
-  site: 'https://gdagent.github.io',
+  site: 'https://gdagent.dev',
   output: 'static',
   telemetry: false,
   integrations: [mdx(), sitemap()],

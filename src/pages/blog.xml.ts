@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { buildRssXml } from '../utils/rss';
 
-const FALLBACK_SITE_URL = 'https://gdagent.github.io';
+const FALLBACK_SITE_URL = 'https://gdagent.dev';
 
 const toPath = (id: string) => `/blog/${id.replace(/\.md$/, '')}`;
 

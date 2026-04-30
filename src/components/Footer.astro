@@ -9,9 +9,10 @@ const footerLinks = {
   ],
   resources: [
     { label: "Documentation", href: "/docs" },
+    { label: "Links", href: "/links" },
     { label: "Changelog", href: "/docs/changelog" },
     { label: "Blog", href: "/blog" },
-    { label: "Support", href: "mailto:gdagent@protonmail.com" },
+    { label: "Support", href: "mailto:support@gdagent.dev" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -27,7 +28,6 @@ const currentYear = new Date().getFullYear();
 <footer class="border-t border-[#262626] py-10 md:py-11">
   <div class="mx-auto max-w-6xl px-6">
     <div class="anim anim-fade-up grid gap-8 md:grid-cols-4">
-      <!-- Brand -->
       <div>
         <a href="/">
           <img
@@ -43,10 +43,9 @@ const currentYear = new Date().getFullYear();
         </p>
       </div>
 
-      <!-- Product -->
       <div>
         <p class="mb-4 font-mono text-sm font-medium text-[#a1a1a1]">Product</p>
-        <ul class="list-none space-y-2 p-0 m-0">
+        <ul class="m-0 list-none space-y-2 p-0">
           {footerLinks.product.map((link) => (
             <li>
               <a href={link.href} class="text-sm text-white no-underline transition-colors hover:text-[#a1a1a1]">
@@ -57,10 +56,9 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Resources -->
       <div>
         <p class="mb-4 font-mono text-sm font-medium text-[#a1a1a1]">Resources</p>
-        <ul class="list-none space-y-2 p-0 m-0">
+        <ul class="m-0 list-none space-y-2 p-0">
           {footerLinks.resources.map((link) => (
             <li>
               <a href={link.href} class="text-sm text-white no-underline transition-colors hover:text-[#a1a1a1]">
@@ -71,10 +69,9 @@ const currentYear = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Legal -->
       <div>
         <p class="mb-4 font-mono text-sm font-medium text-[#a1a1a1]">Legal</p>
-        <ul class="list-none space-y-2 p-0 m-0">
+        <ul class="m-0 list-none space-y-2 p-0">
           {footerLinks.legal.map((link) => (
             <li>
               <a href={link.href} class="text-sm text-white no-underline transition-colors hover:text-[#a1a1a1]">
@@ -123,8 +120,8 @@ const currentYear = new Date().getFullYear();
           class="text-[#a1a1a1] transition-colors hover:text-white"
           aria-label="Reddit"
         >
-          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 512 512">
-            <path d="M440.3 203.5c-15 0-28.2 6.2-37.7 15.6-34.6-24.9-83.9-41.4-138.8-42.8l23.9-112.9 78.7 16.7c0 .4-.1.9-.1 1.3 0 22.6 18.3 41 41 41 22.6 0 41-18.3 41-41s-18.3-41-41-41c-16.9 0-31.3 10.3-37.5 25l-88.8-18.9c-8.6-1.8-17.1 3.7-18.9 12.3l-26.2 123.4c-56.1 1-106.4 17.5-141.8 42.7-9.6-9.7-23-15.8-38.2-15.8-29.2 0-52.9 23.7-52.9 52.9 0 21 12.3 39.1 30 47.7-1 5.4-1.6 11-1.6 16.7 0 84.9 98 153.7 218.8 153.7s218.8-68.8 218.8-153.7c0-5.7-.5-11.3-1.5-16.7 17.5-8.7 29.6-26.7 29.6-47.5.1-29.1-23.5-52.8-52.7-52.8zM129.1 338c0-22.6 18.3-41 41-41s41 18.3 41 41-18.3 41-41 41-41-18.3-41-41zm225.8 85.8c-22.9 22.9-66.7 24.2-98.9 24.2-32.1 0-76-1.4-98.9-24.2-6.8-6.8-6.8-17.8 0-24.6 6.8-6.8 17.8-6.8 24.6 0 12.9 12.9 43.8 14.7 74.3 14.7s61.4-1.8 74.3-14.7c6.8-6.8 17.8-6.8 24.6 0 6.8 6.9 6.8 17.9 0 24.6zM342 379c-22.6 0-41-18.3-41-41s18.3-41 41-41 41 18.3 41 41-18.3 41-41 41z" />
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z" />
           </svg>
         </a>
       </div>

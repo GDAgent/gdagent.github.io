@@ -63,7 +63,7 @@ Current roadmap priorities include:
 
 If you are building with Godot, try GDAgent and tell us where it helps most and where it still gets in the way.
 
-- Website: <https://gdagent.github.io>
+- Website: <https://gdagent.dev>
 - Issues and feedback: <https://github.com/gdagent/gdagent/issues>
 
 Thanks for being here on launch day.

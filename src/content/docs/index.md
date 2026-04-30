@@ -25,3 +25,5 @@ New to GDAgent? Start here:
 - [FAQ](/docs/support/faq) - Frequently asked questions
 - [Troubleshooting](/docs/support/troubleshooting) - Common issues and solutions
 - [Contact](/docs/support/contact) - Get help from support
+- [GitHub Issues](https://github.com/GDAgent/GDAgent/issues) - Report bugs and suggest features
+- [Discord](https://discord.gg/y5rrsQDpDg) - Ask quick questions and join the community
