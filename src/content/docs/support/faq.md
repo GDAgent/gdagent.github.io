@@ -46,7 +46,7 @@ Yes. After activation, GDAgent works offline for up to 7 days. It revalidates au
 
 ### Do I need an internet connection?
 
-Internet is required for initial activation and periodic revalidation. After that, GDAgent can run offline for a limited period. The AI tools you use typically require internet to communicate with their APIs.
+Internet is required for initial activation and periodic revalidation. After that, GDAgent can run offline for up to 7 days. The AI tools you use typically require internet to communicate with their APIs.
 
 ### What's the refund policy?
 

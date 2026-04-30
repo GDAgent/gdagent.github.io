@@ -46,7 +46,7 @@ Supported tools include Claude Code, Google Gemini CLI, Aider, GitHub Copilot CL
 ## Pricing at launch
 
 - Individual license: $8.99 one-time with discount code `LAUNCH10` (limited time only, normally $9.99)
-- 3-day free trial with full access
+- 7-day free trial with full access
 - 2 machine activations per license
 - 30-day money-back guarantee
 
