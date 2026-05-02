@@ -7,13 +7,25 @@ description: "Common issues and solutions"
 
 ### "GDAgent is not a valid Godot plugin"
 
-The addon wasn't fully installed. Launch `gdagent`, select your project, and click **Repair**.
+The addon install is usually partial or interrupted.
+
+1. Run `gdagent status --project /path/to/project`.
+2. If the status reports a partial install or missing components, run `gdagent repair --project /path/to/project`.
+3. Repair reinstalls the addon payload, bundled MCP files, and the expected `project.godot` integration entries.
 
 ### The plugin is installed but does not appear in Godot
 
 1. Open **Project > Project Settings > Plugins** and check whether `GDAgent` is listed but disabled.
 2. If it is missing entirely, run **Install** or **Repair** again from `gdagent`.
 3. Reopen the project after reinstalling if Godot had the project open during the repair.
+
+### `gdagent status` says partial install or missing components
+
+This means GDAgent found some addon files, but not a complete healthy install.
+
+1. Run `gdagent repair --project /path/to/project`.
+2. Let repair finish fully before reopening Godot.
+3. If repair fails, read the missing file or permission error in the output, fix that issue, and rerun repair.
 
 ### "Integrity verification failed"
 
