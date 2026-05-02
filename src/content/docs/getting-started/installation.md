@@ -8,7 +8,7 @@ description: "Download and install GDAgent on Windows or Linux"
 - **Godot Engine**: 4.6 or later
 - **Operating Systems**: Windows 11 or Linux, x86_64
 
-macOS and Android support is coming soon.
+macOS and Android support are planned.
 
 ## Download
 
@@ -33,6 +33,6 @@ Keep `gdagent` and `gdagent.sig` together in the same folder.
 
 ## Next Step
 
-- [Quick Start & Activation guide](/docs/getting-started/quick-start)
+- [Quick Start & Activation](/docs/getting-started/quick-start)
 - [Support Matrix](/docs/reference/support-matrix)
 - [Troubleshooting](/docs/support/troubleshooting)
