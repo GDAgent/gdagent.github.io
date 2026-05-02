@@ -60,14 +60,6 @@ Press `Ctrl+C` to interrupt any stuck process, or close and reopen the tab.
 2. If you just installed it, fully close and reopen `gdagent` and Godot so GUI processes pick up the new PATH.
 3. If the command works in your shell but not in GDAgent, run `gdagent doctor` and confirm the same executable is visible there.
 
-### The tool is detected but marked as setup or sign-in required
-
-GDAgent distinguishes between a tool being present and a tool being ready.
-
-1. Open the install surface for that tool.
-2. Follow the listed sign-in or first-run steps in your normal terminal.
-3. Reopen or re-probe after completing auth so GDAgent can refresh its readiness state.
-
 ### Bundled Godot MCP is not available in my tab
 
 1. Confirm the active AI tool supports bundled Godot MCP auto-configuration in the [Support Matrix](/docs/reference/support-matrix).
