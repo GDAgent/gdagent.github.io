@@ -66,10 +66,12 @@ const imageUrl = new URL(image, seoBase).toString();
     <Nav showDocsSidebarToggle={true} />
 
     <div class="mx-auto max-w-6xl px-6 pt-24 pb-8 md:pb-12">
-      <div class="flex items-start gap-12">
-        <DocsSidebar currentPath={currentPath} />
+      <div class="lg:relative">
+        <div class="hidden lg:block lg:absolute lg:left-0 lg:top-0 lg:w-64">
+          <DocsSidebar currentPath={currentPath} />
+        </div>
 
-        <main class="min-w-0 flex-1">
+        <main class="min-w-0 lg:ml-[19rem]">
           <article class="docs-prose">
             <slot />
           </article>
