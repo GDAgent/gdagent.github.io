@@ -21,6 +21,8 @@ GDAgent supports these terminal-based AI coding assistants:
 
 GDAgent automatically detects which of these tools you have installed.
 
+Bundled Godot MCP integration is a narrower feature than terminal-agent support. Some agents are supported as normal terminal tools without also getting bundled MCP auto-configuration. See the [Support Matrix](/docs/reference/support-matrix) for the current breakdown.
+
 ## Do I need my own API keys?
 
 Yes. GDAgent provides the terminal integration — you bring your own API keys or subscriptions. Each AI tool has its own pricing.
@@ -73,6 +75,10 @@ Godot 4.6 and later.
 ### The plugin doesn't appear in Godot
 
 Launch `gdagent`, select your project, and click **Repair**.
+
+### Does workspace restore resume my terminal conversation?
+
+No. Workspace restore brings back your session organization: tabs, layout, split groups, names, and icons. It does not resume live terminal processes or agent conversation state. See [Workspace Restore](/docs/features/workspace-restore) for details.
 
 ### I hit the activation limit
 

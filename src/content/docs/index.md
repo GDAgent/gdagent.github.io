@@ -16,9 +16,16 @@ New to GDAgent? Start here:
 
 - [Changelog](/docs/changelog) - Track every major and minor release
 
+## Features
+
+- [Prompt Library](/docs/features/prompt-library) - Built-in Godot workflows and editable user templates
+- [Workspace Restore](/docs/features/workspace-restore) - What GDAgent restores between launches and what it does not
+- [Bundled Godot MCP](/docs/features/bundled-godot-mcp) - How MCP works in GDAgent and which agents support it
+
 ## Reference
 
 - [CLI Reference](/docs/reference/cli) - Command-line interface help
+- [Support Matrix](/docs/reference/support-matrix) - Agent support, bundled MCP coverage, install flow, and platform support
 
 ## Support
 

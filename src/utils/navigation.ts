@@ -22,10 +22,20 @@ export const docsNavigation: NavItem[] = [
     ],
   },
   {
+    label: 'Features',
+    href: '/docs/features/prompt-library',
+    children: [
+      { label: 'Prompt Library', href: '/docs/features/prompt-library' },
+      { label: 'Workspace Restore', href: '/docs/features/workspace-restore' },
+      { label: 'Bundled Godot MCP', href: '/docs/features/bundled-godot-mcp' },
+    ],
+  },
+  {
     label: 'Reference',
     href: '/docs/reference/cli',
     children: [
       { label: 'CLI Reference', href: '/docs/reference/cli' },
+      { label: 'Support Matrix', href: '/docs/reference/support-matrix' },
     ],
   },
   {

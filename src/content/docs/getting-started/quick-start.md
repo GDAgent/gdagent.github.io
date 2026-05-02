@@ -27,7 +27,7 @@ Open your project in Godot. You'll see the GDAgent tab at the top.
 2. Select your preferred AI tool
 3. Start working with your AI assistant
 
-The AI has full context of your Godot project and can help you write GDScript, create scenes, debug issues, and more.
+New terminals start from your current Godot project root, so the AI tool opens in the right local workspace. GDAgent can also surface bundled Godot MCP tools for supported agents, but that depends on the active tool and config.
 
 ## License Management
 
@@ -66,6 +66,10 @@ printf '%s' "$GDAGENT_LICENSE_KEY" | gdagent activate
 
 ## What's Next?
 
+- [Prompt Library](/docs/features/prompt-library) - Built-in Godot workflows and editable user templates
+- [Workspace Restore](/docs/features/workspace-restore) - Understand what is restored between launches
+- [Bundled Godot MCP](/docs/features/bundled-godot-mcp) - Learn how bundled MCP works for supported agents
+- [Support Matrix](/docs/reference/support-matrix) - See which agents support bundled MCP and auto-install
 - [CLI Reference](/docs/reference/cli) - Command-line usage and automation
 - [FAQ](/docs/support/faq) - Common questions and answers
 - [Troubleshooting](/docs/support/troubleshooting) - Fix common issues quickly

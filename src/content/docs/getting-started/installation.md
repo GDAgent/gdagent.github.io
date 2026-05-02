@@ -34,3 +34,5 @@ Keep `gdagent` and `gdagent.sig` together in the same folder.
 ## Next Step
 
 - [Quick Start & Activation guide](/docs/getting-started/quick-start)
+- [Support Matrix](/docs/reference/support-matrix)
+- [Troubleshooting](/docs/support/troubleshooting)
