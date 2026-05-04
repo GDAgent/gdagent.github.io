@@ -11,11 +11,21 @@ const typeLabels = {
   'minor-release': 'Minor Release',
 } as const;
 
+const parseVersion = (version: string | undefined) => {
+  if (!version) return [0, 0, 0];
+  const parts = version.replace(/^v/, '').split('.').map(Number);
+  return [parts[0] || 0, parts[1] || 0, parts[2] || 0];
+};
+
 export const GET: APIRoute = async ({ site }) => {
   const siteUrl = (site?.toString() ?? FALLBACK_SITE_URL).replace(/\/$/, '');
-  const entries = (await getCollection('changelog', ({ data }) => data.draft !== true)).sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime()
-  );
+  const entries = (await getCollection('changelog', ({ data }) => data.draft !== true)).sort((a, b) => {
+    const dateDiff = b.data.date.getTime() - a.data.date.getTime();
+    if (dateDiff !== 0) return dateDiff;
+    const [aMajor, aMinor, aPatch] = parseVersion(a.data.version);
+    const [bMajor, bMinor, bPatch] = parseVersion(b.data.version);
+    return (bMajor - aMajor) || (bMinor - aMinor) || (bPatch - aPatch);
+  });
 
   const rss = buildRssXml({
     title: 'GDAgent Changelog',
