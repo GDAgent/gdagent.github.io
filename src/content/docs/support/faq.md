@@ -12,7 +12,7 @@ GDAgent is a Godot editor plugin that brings AI coding assistants directly into 
 GDAgent supports these terminal-based AI coding assistants:
 
 - Claude Code
-- Google Gemini CLI
+- Google Antigravity CLI
 - Aider
 - GitHub Copilot CLI
 - Mistral Vibe
@@ -29,7 +29,7 @@ Yes. GDAgent provides the terminal integration — you bring your own API keys o
 
 ## Is my code sent to your servers?
 
-No. GDAgent runs entirely on your machine. Your code never leaves your computer — we don't have servers that process your code. The AI tools you use (Claude Code, Google Gemini CLI, OpenCode, etc.) have their own privacy policies.
+No. GDAgent runs entirely on your machine. Your code never leaves your computer — we don't have servers that process your code. The AI tools you use (Claude Code, Google Antigravity CLI, OpenCode, etc.) have their own privacy policies.
 
 ## Licensing
 

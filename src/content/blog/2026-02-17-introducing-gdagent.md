@@ -41,7 +41,7 @@ Instead of embedding a web view, we built a native terminal experience so CLI-ba
 - Prompt templates for common Godot tasks
 - One-click install through GDAgent Manager
 
-Supported tools include Claude Code, Google Gemini CLI, Aider, GitHub Copilot CLI, Mistral Vibe, OpenAI Codex CLI, and OpenCode.
+Supported tools include Claude Code, Google Antigravity CLI, Aider, GitHub Copilot CLI, Mistral Vibe, OpenAI Codex CLI, and OpenCode.
 
 ## Pricing at launch
 

@@ -8,7 +8,7 @@ description: "Current agent support, bundled Godot MCP coverage, auto-install be
 | Agent | Terminal Agent | Bundled Godot MCP | Auto-install | Linux | Windows | macOS |
 | --- | --- | --- | --- | --- | --- | --- |
 | Claude Code | Yes | Yes | Yes | Yes | Yes | No |
-| Google Gemini CLI | Yes | Yes | Yes | Yes | Yes | No |
+| Google Antigravity CLI | Yes | Yes | Yes | Yes | Yes | No |
 | Aider | Yes | No | Yes | Yes | Yes | No |
 | GitHub Copilot CLI | Yes | Yes | Yes | Yes | Yes | No |
 | Mistral Vibe | Yes | Yes | Yes | Yes | Yes | No |

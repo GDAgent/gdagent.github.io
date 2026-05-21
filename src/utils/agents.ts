@@ -1,6 +1,6 @@
 export const exampleAgentNames = [
   "Claude Code",
-  "Google Gemini CLI",
+  "Google Antigravity CLI",
   "OpenCode",
 ] as const;
 
