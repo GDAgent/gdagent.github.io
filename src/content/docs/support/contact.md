@@ -21,6 +21,7 @@ For quick questions, setup help, and discussion with other users, join the commu
 ### Videos and updates
 
 - [YouTube](https://youtube.com/@GDAgentDev)
+- [Twitter / X](https://x.com/GDAgentDev)
 - [Bluesky](https://bsky.app/profile/gdagentdev.bsky.social)
 
 ## Email Support
