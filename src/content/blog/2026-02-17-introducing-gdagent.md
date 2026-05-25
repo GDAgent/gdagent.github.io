@@ -43,9 +43,9 @@ Instead of embedding a web view, we built a native terminal experience so CLI-ba
 
 Supported tools include Claude Code, Google Antigravity CLI, Aider, GitHub Copilot CLI, Mistral Vibe, OpenAI Codex CLI, and OpenCode.
 
-## Pricing at launch
+## Pricing
 
-- Individual license: $8.99 one-time with discount code `LAUNCH10` (limited time only, normally $9.99)
+- Individual license: $9.99 one-time
 - 7-day free trial with full access
 - 2 machine activations per license
 - 30-day money-back guarantee
