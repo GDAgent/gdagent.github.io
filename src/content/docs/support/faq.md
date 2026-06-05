@@ -54,6 +54,21 @@ Internet is required for initial activation and periodic revalidation. After tha
 
 We offer a 30-day money-back guarantee. See our [Refund Policy](/refund) for details.
 
+## Security & Native Binaries
+
+### What precompiled binaries are included in GDAgent?
+
+GDAgent packages three native components:
+1. A PTY terminal emulator GDExtension library (`libgdagent.so` / `gdagent.dll`) that powers the native terminals inside Godot.
+2. A Godot MCP GDExtension server (`libgodot_mcp.so` / `godot_mcp.dll`) that runs inside the editor process and implements the Model Context Protocol.
+3. An MCP stdio-to-TCP bridge helper (`gdagent-mcp`) that acts as a secure local bridge between your CLI agent's stdio stream and Godot's internal TCP listener.
+
+For details, see the [Packaged Binaries & Security](/docs/reference/packaged-binaries) page.
+
+### How do these binaries secure my project?
+
+All communications happen strictly over the local loopback interface (`127.0.0.1`), meaning no ports are exposed to the external network. No project code, scripts, or assets are sent to GDAgent servers. Furthermore, when you export your game, GDAgent's build integrations automatically filter out these binaries and related configuration files, ensuring they never ship in your final game.
+
 ## Installation
 
 ### Can I use it in multiple Godot projects?

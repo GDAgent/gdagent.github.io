@@ -36,6 +36,8 @@ export const docsNavigation: NavItem[] = [
     children: [
       { label: 'CLI Reference', href: '/docs/reference/cli' },
       { label: 'Support Matrix', href: '/docs/reference/support-matrix' },
+      { label: 'Godot MCP Tools', href: '/docs/reference/mcp-tools' },
+      { label: 'Packaged Binaries & Security', href: '/docs/reference/packaged-binaries' },
     ],
   },
   {
