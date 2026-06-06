@@ -22,6 +22,10 @@ Without a subcommand, `gdagent` launches the GUI manager.
 - `doctor` - Run diagnostic checks and generate support report
 - `manpage` - Generate a man page for `gdagent`
 - `repair` - Repair an existing GDAgent installation
+- `new` - Create a new Godot project with GDAgent pre-installed
+- `update` - Update the GDAgent addon in one or more Godot projects
+- `self-update` - Update the manager executable, optionally updating a project afterward
+- `auto-update` - Auto-update the manager and a project's addon with progress in the GUI
 
 For command-specific flags and arguments:
 
@@ -29,9 +33,10 @@ For command-specific flags and arguments:
 gdagent <command> --help
 ```
 
-## JSON Output
+## Global Options
 
-`--json` is supported for machine-readable output on CLI workflow commands.
+- `--json` - Output results as JSON for automation
+- `--accept-eula` - Explicitly accept the End-User License Agreement (EULA) for CLI commands
 
 ## Automation Example
 
@@ -40,6 +45,6 @@ gdagent <command> --help
   env:
     GDAGENT_LICENSE_KEY: ${{ secrets.GDAGENT_LICENSE_KEY }}
   run: |
-    printf '%s' "$GDAGENT_LICENSE_KEY" | gdagent activate
-    gdagent install -p ${{ github.workspace }}
+    printf '%s' "$GDAGENT_LICENSE_KEY" | gdagent activate --accept-eula
+    gdagent install -p ${{ github.workspace }} --accept-eula
 ```
