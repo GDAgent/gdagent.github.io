@@ -36,9 +36,9 @@ GDAgent packages several native binaries (GDExtensions and a local stdio redirec
 
 To learn more about what these binaries are, how they work, and our security and privacy model, please read the [Packaged Binaries & Security](/docs/reference/packaged-binaries) guide.
 
-### Release Verification (Linux)
+### Release Verification
 
-We sign all our Linux releases with a GPG key. If you want to manually verify the integrity of the downloaded archive before installing:
+We sign all our releases with a GPG key. If you want to manually verify the integrity of the downloaded archive before installing:
 
 1. Import our official GPG public key from the Ubuntu keyserver:
    ```bash
