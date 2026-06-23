@@ -1,0 +1,49 @@
+---
+const capabilities = [
+  "Edit the scene tree: create, move, delete nodes and wire signals.",
+  "Read and write scripts, with validation before they're applied.",
+  "Run the game, send input, and screenshot the result to check it.",
+  "Inspect project settings, resources, animations and tilemaps.",
+  "Edits made through these tools enter Godot's undo history, so Ctrl+Z reverts them.",
+];
+---
+
+<section id="operates-godot" class="py-16 md:py-20">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
+      <div class="anim anim-fade-up flex-1 space-y-5">
+        <h2 class="font-mono text-3xl font-medium tracking-tight md:text-4xl">
+          An AI that edits your game, not just your files
+        </h2>
+        <p class="text-lg text-[#a1a1a1]">
+          With the bundled Godot MCP, supported agents work in the editor itself — the scene tree, the running game, and more.
+        </p>
+        <ul class="space-y-3">
+          {capabilities.map((cap) => (
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-[#a1a1a1]">
+              <svg class="mt-0.5 shrink-0 text-[#27ca40]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{cap}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-xs text-[#808080]">
+          Available for agents that support the bundled MCP. See the
+          <a href="/docs/reference/support-matrix" class="text-[#a1a1a1] underline hover:text-white">support matrix</a>.
+        </p>
+      </div>
+
+      <div class="anim anim-scale-in anim-d1 flex-1">
+        <div class="overflow-hidden rounded-xl border border-[#262626] bg-[#121212]">
+          <img
+            src="/images/operates-godot-mcp.gif"
+            alt="An AI agent building a Godot level scene through the bundled MCP"
+            width="900"
+            height="506"
+            class="block w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
