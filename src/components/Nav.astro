@@ -3,17 +3,16 @@ interface Props {
   showDocsSidebarToggle?: boolean;
 }
 
+import { TRIAL_URL } from "../utils/checkout";
+
 const { showDocsSidebarToggle = false } = Astro.props;
 
 const navLinks = [
   { href: "/#features", label: "Features" },
-  { href: "/#roadmap", label: "Roadmap" },
+  { href: "/compare", label: "Compare" },
   { href: "/#pricing", label: "Pricing" },
-  { href: "/links", label: "Links" },
   { href: "/docs", label: "Docs" },
   { href: "/blog", label: "Blog" },
-  { href: "/press-kit", label: "Press Kit" },
-  { href: "/#faq", label: "FAQ" },
 ];
 ---
 
@@ -55,6 +54,13 @@ const navLinks = [
             {link.label}
           </a>
         ))}
+        <a
+          href={TRIAL_URL}
+          data-umami-event="nav-trial"
+          class="rounded border border-white bg-white px-4 py-1.5 text-sm font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#f0f0f0]"
+        >
+          Start free trial
+        </a>
       </div>
 
       <button
@@ -81,6 +87,13 @@ const navLinks = [
             {link.label}
           </a>
         ))}
+        <a
+          href={TRIAL_URL}
+          data-umami-event="nav-trial"
+          class="rounded border border-white bg-white px-4 py-2 text-center text-sm font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#f0f0f0]"
+        >
+          Start free trial
+        </a>
       </div>
     </div>
   </div>

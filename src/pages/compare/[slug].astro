@@ -1,0 +1,89 @@
+---
+import Base from "../../layouts/Base.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { comparisons } from "../../data/comparisons";
+import { TRIAL_URL, BUY_URL } from "../../utils/checkout";
+
+export function getStaticPaths() {
+  return comparisons.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props;
+const others = comparisons.filter((o) => o.slug !== c.slug);
+---
+
+<Base title={`${c.title} — GDAgent`} description={c.description}>
+  <Nav />
+  <main class="pt-24">
+    <div class="mx-auto max-w-3xl px-6 py-16">
+      <a href="/compare" class="text-sm text-[#a1a1a1] no-underline transition-colors hover:text-white">← All comparisons</a>
+
+      <h1 class="anim anim-fade-up mt-4 font-mono text-4xl font-medium tracking-tight">{c.title}</h1>
+
+      <p class="anim anim-fade-up anim-d1 mt-4 rounded-lg border border-[#262626] bg-[#121212] p-4 text-lg text-white">
+        {c.shortVersion}
+      </p>
+
+      <p class="anim anim-fade-up anim-d1 mt-6 leading-relaxed text-[#a1a1a1]">{c.intro}</p>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <section class="anim anim-fade-up anim-d2 rounded-lg border border-[#27ca40]/30 bg-[#27ca40]/[0.06] p-6">
+          <h2 class="mb-4 font-mono text-base font-medium text-white">Where GDAgent is stronger</h2>
+          <ul class="space-y-3">
+            {c.strengths.map((s) => (
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[#a1a1a1]">
+                <svg class="mt-0.5 shrink-0 text-[#27ca40]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="anim anim-fade-up anim-d3 rounded-lg border border-[#262626] bg-[#121212] p-6">
+          <h2 class="mb-4 font-mono text-base font-medium text-white">Where {c.competitor} leads</h2>
+          <ul class="space-y-3">
+            {c.theyLead.map((t) => (
+              <li class="flex items-start gap-2.5 text-sm leading-relaxed text-[#a1a1a1]">
+                <svg class="mt-0.5 shrink-0 text-[#808080]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <section class="anim anim-fade-up anim-d4 mt-8 rounded-lg border border-[#262626] bg-[#121212] p-6">
+        <h2 class="mb-2 font-mono text-base font-medium text-white">Which to pick</h2>
+        <p class="text-sm leading-relaxed text-[#a1a1a1]">{c.verdict}</p>
+      </section>
+
+      <div class="anim anim-fade-up anim-d4 mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={TRIAL_URL} data-umami-event="compare-trial" class="inline-flex items-center justify-center gap-2 rounded border border-white bg-white px-6 py-3 font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#f0f0f0]">
+          Start a free 7-day trial
+        </a>
+        <a href={BUY_URL} data-umami-event="compare-buy" class="inline-flex items-center justify-center gap-2 rounded border border-[#262626] px-6 py-3 font-medium text-white no-underline transition-colors hover:border-white">
+          Buy — $9.99
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-[#808080]">
+        Comparison last reviewed {c.reviewed}. {c.competitor === "the free Godot AI plugins" ? "Competitor" : c.competitor} details can change — check their site for the latest.
+      </p>
+
+      {others.length > 0 && (
+        <div class="mt-12 border-t border-[#262626] pt-8">
+          <p class="mb-3 font-mono text-sm font-medium text-[#a1a1a1]">More comparisons</p>
+          <div class="flex flex-wrap gap-3">
+            {others.map((o) => (
+              <a href={`/compare/${o.slug}`} class="rounded border border-[#262626] bg-[#121212] px-4 py-2 text-sm text-white no-underline transition-colors hover:border-[#404040]">
+                {o.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Base>
