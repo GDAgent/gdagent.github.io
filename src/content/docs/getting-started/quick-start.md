@@ -1,6 +1,6 @@
 ---
 title: "Quick Start & Activation"
-description: "Activate your license and get GDAgent running in your Godot project in minutes"
+description: "Activate your license, install GDAgent into your Godot project, and launch your first AI coding agent in the editor in just a few minutes."
 ---
 
 ## 1. Launch GDAgent

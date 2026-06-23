@@ -1,6 +1,6 @@
 ---
 title: "Contact Support"
-description: "Get help with GDAgent"
+description: "Get help with GDAgent: contact support for installation, license activation, account, and troubleshooting questions about AI agents in Godot."
 ---
 
 ## Where To Go

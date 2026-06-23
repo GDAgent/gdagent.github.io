@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Download and install GDAgent on Windows or Linux"
+description: "Download and install GDAgent on Windows or Linux, verify the release signature, and get AI coding agents running inside the Godot editor."
 ---
 
 ## Requirements

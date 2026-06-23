@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting"
-description: "Common issues and solutions"
+description: "Fix common GDAgent issues — installation, license activation, AI CLI detection, terminals, and the bundled Godot MCP — with step-by-step solutions."
 ---
 
 ## Installation Issues

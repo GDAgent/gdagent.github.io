@@ -1,6 +1,6 @@
 ---
 title: "GDAgent Documentation"
-description: "Official documentation for GDAgent - the AI development environment for Godot"
+description: "Official GDAgent documentation: install and activate, set up AI coding agents, use the bundled Godot MCP, and reference guides for the Godot addon."
 ---
 
 Welcome to the official documentation for GDAgent, the professional AI development environment for Godot. GDAgent brings terminal-based AI coding assistants directly into the Godot editor.

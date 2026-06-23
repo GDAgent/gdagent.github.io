@@ -1,6 +1,6 @@
 ---
 title: "CLI Reference"
-description: "GDAgent command-line interface for automation and scripting"
+description: "GDAgent's command-line interface: activate licenses, install the addon, and run AI agents headlessly for automation, CI/CD pipelines, and scripting."
 ---
 
 ## Synopsis

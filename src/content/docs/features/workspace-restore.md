@@ -1,6 +1,6 @@
 ---
 title: "Workspace Restore"
-description: "What GDAgent restores between launches and where the current limits are"
+description: "How GDAgent workspace restore brings back your tabs, layout, split groups, names and icons between launches — and what it does not resume."
 ---
 
 ## What GDAgent Restores

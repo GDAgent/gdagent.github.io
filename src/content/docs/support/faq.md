@@ -1,6 +1,6 @@
 ---
 title: "FAQ"
-description: "Frequently asked questions about GDAgent"
+description: "Common questions about GDAgent: supported AI tools and Godot versions, pricing and licensing, privacy and data, and the bundled Godot MCP."
 ---
 
 ## What is GDAgent?
