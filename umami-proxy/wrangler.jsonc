@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "umami-proxy",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-12",
+  "compatibility_flags": ["nodejs_compat_v2"],
+  "routes": [
+    { "pattern": "gdagent.dev/umami/*", "zone_name": "gdagent.dev" }
+  ]
+}
