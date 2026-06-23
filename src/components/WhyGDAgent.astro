@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+
+// Live count so the trust signal stays accurate as releases ship.
+const releaseCount = (await getCollection("changelog", ({ data }) => data.draft !== true)).length;
+
+const points = [
+  {
+    title: "Real agents, not a chat box",
+    body: "The full Claude Code, Codex or OpenCode terminal, running inside Godot. Not a cut-down chat panel that edits one file at a time.",
+  },
+  {
+    title: "No credits, no subscription",
+    body: "$9.99 once. Bring a free CLI or the AI tool you already pay for, instead of buying metered credits every month.",
+  },
+  {
+    title: "In the editor you already use",
+    body: "GDAgent runs in real Godot, with your project, scenes and shortcuts. Nothing to migrate, no separate app to learn.",
+  },
+  {
+    title: "Private by default",
+    body: "GDAgent has no servers and sends no telemetry. The AI tools you choose talk to their own APIs, which is your call to make, not ours.",
+  },
+  {
+    title: "One developer, shipping fast",
+    body: `Built and actively maintained by one developer, with ${releaseCount} releases since launch. Email support and a 30-day money-back guarantee.`,
+  },
+  {
+    title: "Try it before you pay",
+    body: "Run the full thing for 7 days, no credit card. From the Asset Store you don't even need an account.",
+  },
+];
+---
+
+<section id="why" class="py-16 md:py-20">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="anim anim-fade-up mb-12 text-center">
+      <h2 class="mb-4 font-mono text-3xl font-medium tracking-tight md:text-4xl">
+        Why GDAgent
+      </h2>
+      <p class="text-[#a1a1a1]">
+        What you get that the free plugins and the subscription tools don't.
+      </p>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {points.map((point, i) => (
+        <div class={`anim anim-fade-up anim-d${(i % 3) + 1} rounded-lg border border-[#262626] bg-[#121212] p-6 transition-colors hover:border-[#404040]`}>
+          <h3 class="mb-2 font-mono text-base font-medium">{point.title}</h3>
+          <p class="text-sm leading-relaxed text-[#a1a1a1]">{point.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
