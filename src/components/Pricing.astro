@@ -1,5 +1,6 @@
 ---
 import { TEAM_WAITLIST_URL, MACOS_WAITLIST_URL } from "../utils/waitlist";
+import { TRIAL_URL, BUY_URL } from "../utils/checkout";
 
 const plans = [
   {
@@ -12,7 +13,7 @@ const plans = [
       { label: "Support", value: "Email" },
     ],
     cta: "Buy Individual",
-    href: "https://gdagent.lemonsqueezy.com/checkout/buy/c0dae998-2713-48fd-99af-5943a58ad9b4",
+    href: BUY_URL,
     highlighted: true,
     comingSoon: false,
   },
@@ -58,7 +59,7 @@ const plans = [
             <span class="font-mono text-4xl font-medium text-white">7 <span class="text-3xl">days</span></span>
           </div>
           <a
-            href="https://gdagent.lemonsqueezy.com/checkout/buy/e364be1b-0edc-47b3-86d5-a28f4b9ed24f"
+            href={TRIAL_URL}
             data-umami-event="cta-trial"
             class="inline-flex items-center gap-2 rounded border border-[#27ca40] bg-[#27ca40] px-12 py-2.5 text-sm font-medium text-[#0a0a0a] no-underline whitespace-nowrap transition-colors hover:bg-[#27ca40]/90"
           >

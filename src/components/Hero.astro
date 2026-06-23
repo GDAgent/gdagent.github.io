@@ -1,4 +1,6 @@
 ---
+import { TRIAL_URL, BUY_URL } from "../utils/checkout";
+
 const agents = [
   { name: "Claude Code", icon: "https://cdn.simpleicons.org/claude/white" },
   { name: "Google Antigravity CLI", icon: "https://cdn.simpleicons.org/google/white" },
@@ -28,7 +30,7 @@ const agents = [
       <!-- CTAs -->
       <div class="anim anim-fade-up anim-d2 mb-3 flex flex-col gap-4 sm:flex-row">
         <a
-          href="https://gdagent.lemonsqueezy.com/checkout/buy/e364be1b-0edc-47b3-86d5-a28f4b9ed24f"
+          href={TRIAL_URL}
           data-umami-event="hero-trial"
           class="inline-flex items-center justify-center gap-2 rounded border border-white bg-white px-8 py-3 font-medium text-[#0a0a0a] no-underline transition-colors hover:bg-[#f0f0f0] hover:text-[#0a0a0a]"
         >
@@ -36,7 +38,7 @@ const agents = [
           Start free trial
         </a>
         <a
-          href="https://gdagent.lemonsqueezy.com/checkout/buy/c0dae998-2713-48fd-99af-5943a58ad9b4"
+          href={BUY_URL}
           data-umami-event="hero-buy"
           class="inline-flex items-center justify-center gap-2 rounded border border-[#262626] px-8 py-3 font-medium text-white no-underline transition-colors hover:border-white"
         >
