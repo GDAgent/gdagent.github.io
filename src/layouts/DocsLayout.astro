@@ -4,6 +4,9 @@ import Nav from "../components/Nav.astro";
 import DocsSidebar from "../components/docs/DocsSidebar.astro";
 import Footer from "../components/Footer.astro";
 
+const UMAMI_WEBSITE_ID = "3874f148-8244-4197-89fc-2181fe236598";
+const UMAMI_SRC = "https://cloud.umami.is/script.js";
+
 interface Props {
   title: string;
   description?: string;
@@ -60,6 +63,9 @@ const imageUrl = new URL(image, seoBase).toString();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    {UMAMI_WEBSITE_ID && (
+      <script defer src={UMAMI_SRC} data-website-id={UMAMI_WEBSITE_ID}></script>
+    )}
     <title>{title} | GDAgent Docs</title>
   </head>
   <body class="bg-[#0a0a0a] text-white">

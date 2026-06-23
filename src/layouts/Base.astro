@@ -39,6 +39,13 @@ const alternateLinks = alternates.map((alternate) => ({
   href: new URL(alternate.href, seoBase).toString(),
 }));
 const isHomePage = Astro.url.pathname === "/";
+
+// --- Analytics (Umami Cloud, cookieless / privacy-pure) ---
+// Paste your Umami Cloud website-id below to switch analytics on. The script
+// only loads when this is set, so the site builds fine while it's empty.
+// The id is public by design (it ships in client JS), so committing it is fine.
+const UMAMI_WEBSITE_ID = "3874f148-8244-4197-89fc-2181fe236598";
+const UMAMI_SRC = "https://cloud.umami.is/script.js";
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -96,6 +103,9 @@ const softwareApplicationJsonLd = {
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:site" content="@GDAgentDev" />
 
+    {UMAMI_WEBSITE_ID && (
+      <script defer src={UMAMI_SRC} data-website-id={UMAMI_WEBSITE_ID}></script>
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
