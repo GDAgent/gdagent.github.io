@@ -76,7 +76,7 @@ export const comparisons: Comparison[] = [
       "Several free, open-source plugins bring AI into Godot. Agent Godette runs Claude and Codex in the editor, Godot AI connects MCP clients, GDAI MCP bridges an external IDE, and AI Assistant Hub is a chat panel. They are genuinely good if you are happy wiring things up and maintaining them yourself.",
     strengths: [
       "The full terminal of each agent, not a chat panel or an external client window.",
-      "Several agents running at once, arranged in split-view layouts, with layout and session restore.",
+      "Several agents running at once, arranged in split-view layouts that come back between launches.",
       "A built-in Godot prompt library and a guided first-run setup.",
       "Native Rust performance, signed builds, and email support.",
       "One tested, maintained package instead of a set of plugins you assemble yourself.",
