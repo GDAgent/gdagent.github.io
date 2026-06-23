@@ -23,12 +23,18 @@ const plans = [
       { label: "Updates", value: "Unlimited while maintained" },
       { label: "Support", value: "Priority" },
     ],
-    cta: "Coming Soon",
+    cta: "Join the Waitlist",
     href: "",
     highlighted: false,
     comingSoon: true,
   },
 ];
+
+// Waitlist capture = Lemon Squeezy $0 products (same free-checkout pattern as the
+// trial, so emails flow into LS → sender.net). Paste each $0 product's checkout URL
+// below to activate the button; until then it gracefully shows a disabled state.
+const TEAM_WAITLIST_URL = "https://gdagent.lemonsqueezy.com/checkout/buy/d8366892-d5c4-451c-b4f1-d9640bcb9943?discount=0";   // e.g. "https://gdagent.lemonsqueezy.com/checkout/buy/…"
+const MACOS_WAITLIST_URL = "https://gdagent.lemonsqueezy.com/checkout/buy/8090dd8b-08c6-4a67-84af-6fb209416cda?discount=0";  // e.g. "https://gdagent.lemonsqueezy.com/checkout/buy/…"
 ---
 
 <section id="pricing" class="py-16 md:py-20">
@@ -85,19 +91,6 @@ const plans = [
           <div class="mb-6 min-h-[6rem]">
             {plan.comingSoon ? (
               <span class="font-mono text-2xl font-medium text-[#a1a1a1]">Coming soon</span>
-            ) : plan.originalPrice ? (
-              <div class="space-y-3">
-                <div class="flex flex-wrap items-baseline gap-3">
-                  <span class="font-mono text-2xl text-[#a1a1a1] line-through">{plan.originalPrice}</span>
-                  <span class="font-mono text-4xl font-medium">{plan.price}</span>
-                  <span class="text-[#a1a1a1]">one-time</span>
-                </div>
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="rounded-full border border-[#27ca40]/40 bg-[#0f1a12] px-3 py-1 text-xs font-medium text-[#d1f2d8]">
-                    with discount code <span class="font-mono text-white">LAUNCH10</span>, only for a limited time
-                  </span>
-                </div>
-              </div>
             ) : (
               <div class="flex items-baseline gap-2">
                 <span class="font-mono text-4xl font-medium" data-price-current>{plan.price}</span>
@@ -116,10 +109,21 @@ const plans = [
           </ul>
 
           {plan.comingSoon ? (
-            <span class="flex items-center justify-center gap-2 rounded border border-[#262626] bg-[#0a0a0a] py-3 text-center font-medium text-[#a1a1a1]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              {plan.cta}
-            </span>
+            TEAM_WAITLIST_URL ? (
+              <a
+                href={TEAM_WAITLIST_URL}
+                data-umami-event="cta-team-waitlist"
+                class="flex items-center justify-center gap-2 rounded border border-[#262626] py-3 text-center font-medium text-white no-underline transition-colors hover:border-white"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                {plan.cta}
+              </a>
+            ) : (
+              <span class="flex items-center justify-center gap-2 rounded border border-[#262626] bg-[#0a0a0a] py-3 text-center font-medium text-[#a1a1a1]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Coming Soon
+              </span>
+            )
           ) : (
             <a
               href={plan.href}
@@ -139,9 +143,19 @@ const plans = [
       ))}
     </div>
 
-    <p class="anim anim-fade-in anim-d4 mt-8 text-center text-sm text-[#a1a1a1]">
-      Available for Windows and Linux. macOS and Android support are planned.<br />
-      30-day money-back guarantee. See our <a href="/refund" class="text-white hover:underline">Refund Policy</a>.
-    </p>
+    <div class="anim anim-fade-in anim-d4 mt-8 flex flex-col items-center gap-3 text-center">
+      <p class="inline-flex items-center gap-2 rounded-full border border-[#27ca40]/40 bg-[#27ca40]/10 px-4 py-1.5 text-sm font-medium text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#27ca40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        30-day money-back guarantee — buy with zero risk. <a href="/refund" class="underline hover:text-[#a1a1a1]">Refund Policy</a>
+      </p>
+      <p class="text-sm text-[#a1a1a1]">
+        <span class="text-white">Windows &amp; Linux only.</span>{" "}
+        {MACOS_WAITLIST_URL ? (
+          <>macOS — <a href={MACOS_WAITLIST_URL} data-umami-event="cta-macos-waitlist" class="text-white underline hover:text-[#a1a1a1]">join the waitlist</a>. Android support is planned.</>
+        ) : (
+          <>macOS and Android support are planned.</>
+        )}
+      </p>
+    </div>
   </div>
 </section>
