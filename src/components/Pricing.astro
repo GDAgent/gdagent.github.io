@@ -1,4 +1,6 @@
 ---
+import { TEAM_WAITLIST_URL, MACOS_WAITLIST_URL } from "../utils/waitlist";
+
 const plans = [
   {
     name: "Individual",
@@ -29,12 +31,6 @@ const plans = [
     comingSoon: true,
   },
 ];
-
-// Waitlist capture = Lemon Squeezy $0 products (same free-checkout pattern as the
-// trial, so emails flow into LS → sender.net). Paste each $0 product's checkout URL
-// below to activate the button; until then it gracefully shows a disabled state.
-const TEAM_WAITLIST_URL = "https://gdagent.lemonsqueezy.com/checkout/buy/d8366892-d5c4-451c-b4f1-d9640bcb9943?discount=0";   // e.g. "https://gdagent.lemonsqueezy.com/checkout/buy/…"
-const MACOS_WAITLIST_URL = "https://gdagent.lemonsqueezy.com/checkout/buy/8090dd8b-08c6-4a67-84af-6fb209416cda?discount=0";  // e.g. "https://gdagent.lemonsqueezy.com/checkout/buy/…"
 ---
 
 <section id="pricing" class="py-16 md:py-20">
@@ -149,12 +145,13 @@ const MACOS_WAITLIST_URL = "https://gdagent.lemonsqueezy.com/checkout/buy/8090dd
         30-day money-back guarantee — buy with zero risk. <a href="/refund" class="underline hover:text-[#a1a1a1]">Refund Policy</a>
       </p>
       <p class="text-sm text-[#a1a1a1]">
-        <span class="text-white">Windows &amp; Linux only.</span>{" "}
+        Available for <span class="text-white">Windows &amp; Linux</span>. On macOS?{" "}
         {MACOS_WAITLIST_URL ? (
-          <>macOS — <a href={MACOS_WAITLIST_URL} data-umami-event="cta-macos-waitlist" class="text-white underline hover:text-[#a1a1a1]">join the waitlist</a>. Android support is planned.</>
+          <a href={MACOS_WAITLIST_URL} data-umami-event="cta-macos-waitlist-pricing" class="font-medium text-[#27ca40] no-underline hover:opacity-80">Join the waitlist →</a>
         ) : (
-          <>macOS and Android support are planned.</>
-        )}
+          <span>macOS support is planned.</span>
+        )}{" "}
+        · Android is planned.
       </p>
     </div>
   </div>

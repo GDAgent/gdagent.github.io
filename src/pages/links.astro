@@ -81,6 +81,7 @@ const groups = [
                     href={link.href}
                     target={external && !link.href.startsWith("mailto:") ? "_blank" : undefined}
                     rel={external && !link.href.startsWith("mailto:") ? "noopener noreferrer" : undefined}
+                    data-umami-event={`link-${link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`}
                     class="group rounded-lg border border-[#262626] bg-[#121212] p-5 no-underline transition-colors hover:border-[#404040]"
                   >
                     <div class="flex items-start justify-between gap-4">
