@@ -82,6 +82,7 @@ The Godot MCP server exposes a rich suite of tools designed to let your AI assis
         *   Synthesizes input events (keys, mouse clicks, axis changes) to simulate player behavior.
         *   Captures live viewport screenshots and sends them to the agent (enabling vision-based analysis).
         *   Inspects running tree hierarchies to locate dynamically spawned nodes.
+        *   Runs deterministic, frame-timed probes on the engine's physics clock — either an ephemeral GDScript coroutine (`eval`) for conditional waits and derived metrics, or a batched timeline of actions (`batch`) — so input and state sampling land on the exact frame intended, free of round-trip races.
 
 ---
 
