@@ -1,34 +1,52 @@
 ---
-title: "Workspace Restore"
-description: "How GDAgent workspace restore brings back your tabs, layout, split groups, names and icons between launches — and what it does not resume."
+title: "Workspace & Session Restore"
+description: "GDAgent restores your tabs, layout, terminal scrollback, and — for supported agents — the actual AI conversation between editor launches."
 ---
 
 ## What GDAgent Restores
 
-When you reopen a project, GDAgent restores workspace organization such as:
+When you reopen a project, GDAgent brings back:
 
 - sessions
-- tabs
-- tab names and icons
-- active layout
-- grouped tabs and split layout state
+- tabs, tab names and icons
+- active layout, grouped tabs and split layout state
+- **terminal scrollback** — each tab's previous output replays above a
+  "restored from previous session" divider
+- **the AI conversation itself** — supported agents relaunch with their
+  native resume flags and continue the same conversation where it left off
 
-This is why you can reopen the editor and get your previous working structure back quickly.
+Restored tabs show a **Resumed** badge; hover it to see details. If a
+conversation could not be resumed (for example, it expired or its transcript
+was deleted), the tab starts a **Fresh** conversation and the badge's tooltip
+explains why. Every launch ends in a working terminal either way.
 
-## What GDAgent Does Not Restore
+## How Conversation Resume Works
 
-Workspace restore does **not** currently resume:
+GDAgent tracks a per-tab conversation handle and relaunches each agent
+through its own native session mechanism — assigned session ids, session
+stores, or history files, depending on the tool. Agents that print or record
+their session ids are picked up automatically, so resume also works for
+sessions GDAgent did not name itself.
 
-- live terminal processes
-- prior terminal scrollback as a full resumed session
-- AI conversation state inside the external tool itself
+For agents whose resume support varies by version (GitHub Copilot CLI,
+Aider, Mistral Vibe), GDAgent probes the installed version first and only
+injects resume flags the tool actually understands. See the
+[Support Matrix](/docs/reference/support-matrix) for the current per-agent
+status.
 
-That means restored tabs come back as part of the same workspace organization, but not as a resumed PTY process or resumed agent chat.
+## Choosing the Behavior
 
-## Why This Is Still Useful
+In **Settings → General**:
 
-For many workflows, the valuable part is getting your layout and task organization back: which agents you had open, which tabs belonged together, and how the workspace was arranged.
+- **Resume Conversations** — `Always` (default) resumes silently, `Ask`
+  shows a per-tab "Resume Conversation / Start Fresh" choice before
+  launching, and `Never` starts every launch as a fresh conversation.
+- **Persist Terminal Scrollback** — toggles saving terminal output between
+  editor sessions, with a configurable per-tab size limit.
 
-## Good Mental Model
+## Where the Data Lives
 
-Think of the current feature as **workspace restore**, not full terminal-session restoration.
+Persisted scrollback is stored encrypted in the project's editor data
+folder and is removed when you close the tab or delete the session. The
+conversation content itself stays where the agent already keeps it — in
+that tool's own local session storage.

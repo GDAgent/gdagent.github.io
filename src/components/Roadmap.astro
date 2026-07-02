@@ -28,10 +28,14 @@ const upcoming = [
     description: "A shared knowledge base that all agents can read and write to. Decisions, conventions, and architecture notes persist across multiple agents and sessions.",
     iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
   },
+];
+
+const shipped = [
   {
-    title: "Deeper Session Restoration",
-    description: "Carry more terminal and workflow context across launches, with clearer fresh-vs-restored state and stronger continuity beyond today's workspace restore.",
+    title: "True Session Restore",
+    description: "Reopening the editor resumes each tab's actual AI conversation and replays its terminal scrollback — shipped in v1.8.0.",
     iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="m8 10 2 2-2 2"/><path d="M12 16h4"/><path d="M8 5V3"/><path d="M16 5V3"/></svg>`,
+    href: "/docs/features/workspace-restore",
   },
 ];
 ---
@@ -83,6 +87,25 @@ const upcoming = [
           </div>
         </div>
       ))}
+    </div>
+
+    <div class="anim anim-fade-up anim-d7 mt-10">
+      <p class="mb-4 text-center font-mono text-[11px] uppercase tracking-[0.08em] text-[#a1a1a1]">
+        Recently shipped
+      </p>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {shipped.map((item) => (
+          <a href={item.href} class="flex items-start gap-4 rounded-lg border border-[#262626] bg-[#121212] p-5 no-underline transition-colors hover:border-[#404040]">
+            <div class="shrink-0 text-[#27ca40]">
+              <Fragment set:html={item.iconSvg} />
+            </div>
+            <div>
+              <h3 class="mb-1 font-mono text-base font-medium text-white">{item.title}</h3>
+              <p class="text-sm leading-relaxed text-[#a1a1a1]">{item.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
 
     <div class="anim anim-fade-up anim-d7 mt-10 text-center">

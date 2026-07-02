@@ -1,7 +1,11 @@
 export const exampleAgentNames = [
   "Claude Code",
+  "OpenAI Codex CLI",
+  "GitHub Copilot CLI",
   "Google Antigravity CLI",
   "OpenCode",
+  "Aider",
+  "Mistral Vibe",
 ] as const;
 
-export const exampleAgentList = `${exampleAgentNames[0]}, ${exampleAgentNames[1]}, ${exampleAgentNames[2]}`;
+export const exampleAgentList = exampleAgentNames.join(", ");
