@@ -67,7 +67,7 @@ printf '%s' "$GDAGENT_LICENSE_KEY" | gdagent activate
 ## What's Next?
 
 - [Prompt Library](/docs/features/prompt-library) - Built-in Godot workflows and editable user templates
-- [Workspace Restore](/docs/features/workspace-restore) - Understand what is restored between launches
+- [Workspace & Session Restore](/docs/features/workspace-restore) - How tabs, scrollback, and AI conversations are restored between launches
 - [Bundled Godot MCP](/docs/features/bundled-godot-mcp) - Learn how bundled MCP works for supported agents
 - [Support Matrix](/docs/reference/support-matrix) - See which agents support bundled MCP and auto-install
 - [CLI Reference](/docs/reference/cli) - Command-line usage and automation

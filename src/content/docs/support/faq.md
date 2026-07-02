@@ -91,9 +91,9 @@ Godot 4.6 and later.
 
 Launch `gdagent`, select your project, and click **Repair**.
 
-### Does workspace restore resume my terminal conversation?
+### Does session restore resume my terminal conversation?
 
-No. Workspace restore brings back your session organization: tabs, layout, split groups, names, and icons. It does not resume live terminal processes or agent conversation state. See [Workspace Restore](/docs/features/workspace-restore) for details.
+Yes, for supported agents. Reopening the editor brings back your session organization (tabs, layout, split groups, names, icons), replays each tab's terminal scrollback, and relaunches supported agents into the same AI conversation. You can change this behavior (Always / Ask / Never) in **Settings > General**. See [Workspace & Session Restore](/docs/features/workspace-restore) and the [Support Matrix](/docs/reference/support-matrix) for per-agent details.
 
 ### I hit the activation limit
 

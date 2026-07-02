@@ -26,7 +26,7 @@ export const docsNavigation: NavItem[] = [
     href: '/docs/features/prompt-library',
     children: [
       { label: 'Prompt Library', href: '/docs/features/prompt-library' },
-      { label: 'Workspace Restore', href: '/docs/features/workspace-restore' },
+      { label: 'Workspace & Session Restore', href: '/docs/features/workspace-restore' },
       { label: 'Bundled Godot MCP', href: '/docs/features/bundled-godot-mcp' },
     ],
   },

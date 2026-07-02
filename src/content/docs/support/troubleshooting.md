@@ -67,9 +67,9 @@ Press `Ctrl+C` to interrupt any stuck process, or close and reopen the tab.
 3. If needed, use **Regenerate MCP Config** for the current active supported agent.
 4. If the current tool does not support bundled MCP, continue with normal file-based workflows; terminal-agent support still works.
 
-### Restored tabs do not resume the previous terminal process
+### A restored tab started a fresh conversation instead of resuming
 
-This is expected. GDAgent restores workspace organization, not live PTY processes or prior AI conversation state. See [Workspace Restore](/docs/features/workspace-restore) for the exact scope.
+Check the tab's **Fresh** badge tooltip — it explains why (for example, the previous conversation expired, its transcript was deleted, or the installed agent version does not support the required resume flags). Also confirm **Settings > General > Resume Conversations** is not set to `Never`, and that the agent supports session resume in the [Support Matrix](/docs/reference/support-matrix). See [Workspace & Session Restore](/docs/features/workspace-restore) for the exact scope.
 
 ## Still Stuck?
 

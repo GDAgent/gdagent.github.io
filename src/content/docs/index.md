@@ -19,7 +19,7 @@ New to GDAgent? Start here:
 ## Features
 
 - [Prompt Library](/docs/features/prompt-library) - Built-in Godot workflows and editable user templates
-- [Workspace Restore](/docs/features/workspace-restore) - What GDAgent restores between launches and what it does not
+- [Workspace & Session Restore](/docs/features/workspace-restore) - Tabs, layout, terminal scrollback, and resumed AI conversations between launches
 - [Bundled Godot MCP](/docs/features/bundled-godot-mcp) - How MCP works in GDAgent and which agents support it
 
 ## Reference
