@@ -6,6 +6,8 @@ export const exampleAgentNames = [
   "OpenCode",
   "Aider",
   "Mistral Vibe",
+  "Grok Build",
+  "Command Code",
 ] as const;
 
 export const exampleAgentList = exampleAgentNames.join(", ");

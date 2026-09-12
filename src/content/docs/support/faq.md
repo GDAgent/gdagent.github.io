@@ -18,8 +18,12 @@ GDAgent supports these terminal-based AI coding assistants:
 - Mistral Vibe
 - OpenAI Codex CLI
 - OpenCode
+- Grok Build
+- Command Code
 
 GDAgent automatically detects which of these tools you have installed.
+
+You can also add your own agent CLI under Settings -> Agents: give it a name and a command, and it opens in a tab like the built-in agents. Custom agents are launch-only — no install detection, no bundled install, no Godot MCP config, and no session resume, since GDAgent only knows the command you entered. They are always ready to launch; if the command is wrong, the terminal says so like any other typo.
 
 Bundled Godot MCP integration is a narrower feature than terminal-agent support. Some agents are supported as normal terminal tools without also getting bundled MCP auto-configuration. See the [Support Matrix](/docs/reference/support-matrix) for the current breakdown.
 

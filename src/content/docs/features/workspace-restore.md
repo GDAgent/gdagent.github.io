@@ -29,8 +29,10 @@ their session ids are picked up automatically, so resume also works for
 sessions GDAgent did not name itself.
 
 For agents whose resume support varies by version (GitHub Copilot CLI,
-Aider, Mistral Vibe), GDAgent probes the installed version first and only
-injects resume flags the tool actually understands. See the
+Aider, Mistral Vibe, Command Code), GDAgent probes the installed version
+first and only injects resume flags the tool actually understands. Custom
+agents you register yourself never resume: GDAgent only knows the command
+you entered, so it has no session mechanism to reattach to. See the
 [Support Matrix](/docs/reference/support-matrix) for the current per-agent
 status.
 

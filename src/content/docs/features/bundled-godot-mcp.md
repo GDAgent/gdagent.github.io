@@ -16,6 +16,8 @@ There are two separate questions:
 
 Some tools are supported as normal terminal agents without also getting bundled MCP auto-configuration.
 
+Custom agents you register yourself under **Settings > Agents** are always in that second group: GDAgent only knows the command you entered, so it never writes MCP config on their behalf.
+
 ## What Auto-Configuration Means
 
 When bundled MCP auto-generation is enabled, GDAgent writes or refreshes its own MCP config entries for the current supported agent. Where the target format allows it, unrelated user-owned config is preserved.

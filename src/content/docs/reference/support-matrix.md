@@ -14,6 +14,9 @@ description: "Current agent support, session resume, bundled Godot MCP coverage,
 | Mistral Vibe | Yes | Auto-detected | Yes | Yes | Yes | Yes | No |
 | OpenAI Codex CLI | Yes | Yes | Yes | Yes | Yes | Yes | No |
 | OpenCode | Yes | Yes | Yes | Yes | Yes | Yes | No |
+| Grok Build | Yes | Yes | Yes | Yes | Yes | Yes | No |
+| Command Code | Yes | Auto-detected | Yes | Yes | Yes | Yes | No |
+| Custom agent (yours) | Yes | No | No | No | Yes | Yes | Yes |
 
 ## How To Read This
 
@@ -25,5 +28,6 @@ description: "Current agent support, session resume, bundled Godot MCP coverage,
 ## Notes
 
 - Aider is a supported GDAgent terminal agent, but GDAgent does not auto-configure bundled Godot MCP integration for it.
+- Custom agents are the ones you register yourself under Settings -> Agents. GDAgent launches the command you give it and nothing more, so they get no install flow, no bundled MCP config, and no session resume — and no platform restrictions either.
 - Terminal scrollback restore works for every agent regardless of the Session Resume column — it replays the previous output above a divider when a tab is restored.
 - macOS remains future work in the current product matrix.

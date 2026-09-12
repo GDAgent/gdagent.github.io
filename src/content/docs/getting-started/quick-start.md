@@ -29,6 +29,8 @@ Open your project in Godot. You'll see the GDAgent tab at the top.
 
 New terminals start from your current Godot project root, so the AI tool opens in the right local workspace. GDAgent can also surface bundled Godot MCP tools for supported agents, but that depends on the active tool and config.
 
+Using a CLI GDAgent does not ship support for? Add it under **Settings > Agents** with a name and a command, and it appears in the agent picker like the built-in ones.
+
 ## License Management
 
 ### Deactivate
