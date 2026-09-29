@@ -32,7 +32,7 @@ The Godot MCP server exposes a rich suite of tools designed to let your AI assis
     *   **Capability:** Returns the path of the active scene being edited, current node selections, and editor window layout.
 *   **`project`**
     *   **Description:** Inspects and updates project-wide settings and configuration files.
-    *   **Capability:** Manages input map settings (adding/modifying keys/buttons), project settings, and autoload singletons.
+    *   **Capability:** Manages the project's input map (`input_map.*` actions add, remove, and verify keys, mouse buttons, and joypad buttons, and save `project.godot`), project settings, and autoload singletons.
 *   **`resource`**
     *   **Description:** Manages external engine resources (`.tres`, `.res`).
     *   **Capability:** Inspects, lists, creates, or updates parameters in material, collision shape, theme, or texture resources.
@@ -49,11 +49,12 @@ The Godot MCP server exposes a rich suite of tools designed to let your AI assis
     *   **Capability:**
         *   `list`: Find and list nodes using patterns, types, or paths.
         *   `get`: Retrieve properties, anchors, positions, and parameters of any node.
-        *   `create`: Add new nodes of any engine type or instance other scenes.
+        *   `create`: Add new nodes of any engine type or instance other scenes, optionally at a specific child position (`index`).
         *   `update`: Modify node properties (with automatic type conversion for Vectors, Colors, Rects, etc.).
         *   `delete`: Remove nodes from the scene tree.
         *   `reparent`: Move nodes under different parent hierarchies.
-        *   `connect`/`disconnect`: Wire signals between nodes programmatically.
+        *   `move`: Reorder a node among its siblings by `index`.
+        *   `connect`/`disconnect`: Wire signals between nodes programmatically. Connections are saved into the scene.
         *   `add_to_group`/`remove_from_group`/`list_groups`: Manage node grouping.
         *   `set_layout`: Apply UI Control node layouts (e.g., center, full rect, top wide).
 
@@ -63,7 +64,7 @@ The Godot MCP server exposes a rich suite of tools designed to let your AI assis
 
 *   **`script`**
     *   **Description:** Dedicated reader and writer for script files (`.gd`, `.cs`).
-    *   **Capability:** Exposes actions to read a script file, write new scripts, or apply edits safely with internal code validation.
+    *   **Capability:** Exposes actions to read a script file, write new scripts, or apply edits safely with internal code validation. Scripts are reloaded from disk before use, and `validate` reports the compiler's own messages.
 *   **`animation`**
     *   **Description:** Controls and edits `AnimationPlayer` assets.
     *   **Capability:** Reads, creates, or updates tracks, keyframes, time values, loops, and playback parameters of animations.
@@ -83,6 +84,7 @@ The Godot MCP server exposes a rich suite of tools designed to let your AI assis
         *   Captures live viewport screenshots and sends them to the agent (enabling vision-based analysis).
         *   Inspects running tree hierarchies to locate dynamically spawned nodes.
         *   Runs deterministic, frame-timed probes on the engine's physics clock — either an ephemeral GDScript coroutine (`eval`) for conditional waits and derived metrics, or a batched timeline of actions (`batch`) — so input and state sampling land on the exact frame intended, free of round-trip races.
+        *   When several game instances are running (**Debug > Customize Run Instances**), each request goes to one session: pass `session_id` to pick it, or the lowest ready session is used.
 
 ---
 

@@ -36,6 +36,14 @@ you entered, so it has no session mechanism to reattach to. See the
 [Support Matrix](/docs/reference/support-matrix) for the current per-agent
 status.
 
+If you switch conversations from inside an agent (for example `/clear` in
+Claude Code or `/new` in Codex), GDAgent notices and reopens the
+conversation you last saw. When it cannot tell which one you mean — for
+example with several tabs of the same agent — it resumes the conversation
+the tab launched with rather than guess. If a resume attempt fails right
+away, the tab starts fresh but keeps the previous conversation aside so a
+later launch can resume it.
+
 ## Choosing the Behavior
 
 In **Settings → General**:
