@@ -42,7 +42,7 @@ We sign all our releases with a GPG key. If you want to manually verify the inte
 
 1. Import our official GPG public key from the Ubuntu keyserver:
    ```bash
-   gpg --keyserver keyserver.ubuntu.com --recv-keys <INSERT_YOUR_KEY_ID_HERE>
+   gpg --keyserver keyserver.ubuntu.com --recv-keys 133C562637EE5390103D48A43B39EF48E35311DE
    ```
 2. Download the release archive and the `.asc` signature file directly from your Lemon Squeezy receipt into the same folder.
 3. Verify the signature:
